@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Louann Lemaire Coudray</title>
+    <title>Portfolio | Louann Lemaire-Coudray</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
@@ -60,10 +60,15 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s; }
         .card:hover { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(0, 255, 204, 0.15); }
-        .card h3 { color: var(--text-color); margin-bottom: 15px; font-size: 1.5rem; }
+        .card h3 { color: var(--text-color); margin-bottom: 10px; font-size: 1.5rem; }
+        .card h4 { color: var(--primary-color); margin-bottom: 15px; font-size: 1rem; font-weight: 400; }
         .card p { color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; }
         
         .tech-stack span { display: inline-block; padding: 5px 10px; background: rgba(0, 255, 204, 0.1); color: var(--primary-color); border-radius: 4px; font-size: 0.8rem; margin-right: 10px; margin-bottom: 10px; }
+        
+        ul.custom-list { list-style-type: none; margin-bottom: 20px; }
+        ul.custom-list li { color: var(--text-muted); margin-bottom: 8px; position: relative; padding-left: 20px; font-size: 0.95rem; }
+        ul.custom-list li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
 
         footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
         
@@ -83,6 +88,7 @@
         <div class="logo">Louann<span>.lemaire-coudray</span></div>
         <div class="nav-links">
             <a href="#accueil">Accueil</a>
+            <a href="#parcours">Parcours</a>
             <a href="#projets">Projets E4</a>
             <a href="#contact">Contact</a>
         </div>
@@ -92,9 +98,39 @@
         <h1 class="reveal-left">Bonjour, je suis <span style="color: var(--primary-color);">Louann</span></h1>
         <h2 class="reveal-left delay-1"><span id="typed-text"></span></h2>
         <p class="reveal-up delay-2" style="max-width: 600px; color: var(--text-muted);">
-            Passionné par l'infrastructure réseau et la sécurité informatique, vous trouverez ici mes différents travaux réalisés au cours de ma formation.
+            Actuellement en formation à <strong>H3 Campus Poissy</strong>, je suis passionné par l'infrastructure réseau et les systèmes. Vous trouverez ici mes réalisations professionnelles et mes projets scolaires.
         </p>
-        <a href="#projets" class="btn reveal-up delay-3">Découvrir mes projets</a>
+        <a href="#parcours" class="btn reveal-up delay-3">Découvrir mon profil</a>
+    </section>
+
+    <section id="parcours">
+        <h2 class="section-title reveal-up">Mon <span>Parcours</span> & Compétences</h2>
+        <div class="grid">
+            
+            <div class="card reveal-up">
+                <h3>Apprenti IT</h3>
+                <h4>📍 Griffine Industrie (Nucourt) | Sept 2025 - Août 2026</h4>
+                <p>En tant qu'apprenti au sein du service informatique, j'assure le maintien en conditions opérationnelles de l'infrastructure de l'entreprise.</p>
+                <ul class="custom-list">
+                    <li>Support utilisateur de niveau 1.</li>
+                    <li>Maintenance de l'infrastructure réseau.</li>
+                    <li>Administration des systèmes et réseaux au quotidien.</li>
+                </ul>
+            </div>
+
+            <div class="card reveal-up delay-1">
+                <h3>Mes Compétences SISR</h3>
+                <h4>Outils & Savoir-faire</h4>
+                <p>Compétences développées en cours et en entreprise :</p>
+                <div class="tech-stack">
+                    <span>Support Utilisateur (N1)</span>
+                    <span>Administration Systèmes</span>
+                    <span>Infrastructure Réseau</span>
+                    <span>Maintenance IT</span>
+                    </div>
+            </div>
+
+        </div>
     </section>
 
     <section id="projets">
@@ -103,19 +139,20 @@
             
             <div class="card reveal-up">
                 <h3>Supervision d'Infrastructure</h3>
-                <p>Mise en place d'une solution de monitoring complète pour superviser une architecture réseau réalisée en cours.</p>
+                <p>Mise en place d'une solution de monitoring complète avec Grafana et Prometheus pour superviser une architecture réseau réalisée en cours.</p>
                 <div class="tech-stack">
                     <span>Grafana</span>
                     <span>Prometheus</span>
-                    <span>Linux</span>
+                    <span>Supervision</span>
                 </div>
             </div>
 
-            <div class="card reveal-up delay-1" style="border-style: dashed; opacity: 0.8;">
-                <h3>Projet E4 n°2</h3>
-                <p>Mon second projet pour l'épreuve E4 est actuellement en cours de réflexion et de conception.</p>
+            <div class="card reveal-up delay-1">
+                <h3>Projets d'Entreprise & TP</h3>
+                <p>Ensemble des travaux pratiques réalisés à l'école et des missions techniques menées lors de mon apprentissage chez Griffine Industrie.</p>
                 <div class="tech-stack">
-                    <span style="background: transparent; border: 1px solid var(--primary-color);">À venir...</span>
+                    <span>Projets H3 Campus</span>
+                    <span>Missions Entreprise</span>
                 </div>
             </div>
 
@@ -125,20 +162,20 @@
     <section id="contact" style="min-height: 60vh;">
         <h2 class="section-title reveal-up">Me <span>Contacter</span></h2>
         <div style="text-align: center;" class="reveal-up delay-1">
-            <p style="color: var(--text-muted); margin-bottom: 30px;">
-                Je suis actuellement à la recherche d'une alternance pour préparer un Bachelor/Licence en <strong>Cybersécurité</strong> l'année prochaine.
+            <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Je suis actuellement à la recherche d'une formation ou d'une alternance pour intégrer une <strong>Licence professionnelle ou un Bachelor/Ingénieur en Cybersécurité</strong> à la rentrée prochaine.
             </p>
             <a href="mailto:louro2903@gmail.com" class="btn">Envoyer un email</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 - Louann Lemaire Coudray | Portfolio BTS SIO SISR<span id="secret-dot">.</span></p>
+        <p>&copy; 2026 - Louann Lemaire-Coudray | Portfolio BTS SIO SISR<span id="secret-dot">.</span></p>
     </footer>
 
     <div id="game-overlay">
         <h2 style="color: var(--primary-color); margin-bottom: 10px;">🚨 Alerte Bug 🚨</h2>
-        <p style="margin-bottom: 20px; color: var(--text-muted);">Attrape (clique sur) le bug 5 fois pour sécuriser le serveur !</p>
+        <p style="margin-bottom: 20px; color: var(--text-muted);">Attrape (clique sur) le bug 5 fois pour sécuriser le réseau !</p>
         
         <div id="game-area">
             <div id="the-bug">🐛</div>
@@ -168,11 +205,11 @@
             retina_detect: true
         });
 
-        /* Effet Machine à écrire adapté à ton profil */
+        /* Effet Machine à écrire adapté */
         new Typed('#typed-text', {
             strings: [
                 'Étudiant en BTS SIO SISR.', 
-                'En apprentissage en tant que technicien IT.',
+                'Apprenti IT chez Griffine Industrie.',
                 'Futur expert en Cybersécurité.'
             ],
             typeSpeed: 50, backSpeed: 30, backDelay: 2000, loop: true
