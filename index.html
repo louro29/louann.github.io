@@ -1,3 +1,15 @@
+Ah, le fameux bug de la virgule ou du guillemet manquant ! C'est un grand classique en développement web : une toute petite erreur de syntaxe en JavaScript fait planter l'intégralité du script. C'est pour cela que plus rien ne s'affichait (ni le texte animé, ni les particules, ni l'apparition au défilement).
+
+**Voici ce qui a causé le problème :**
+Dans la configuration de l'animation de texte (`Typed.js`), tu as écrit :
+`strings: ['Étudiant en BTS SIO.', 'En apprentissage en tant que techinicien it .','],`
+Il y a une apostrophe et une virgule en trop à la fin, ce qui casse la fermeture du tableau. 
+
+J'ai corrigé ce bug dans le code ci-dessous. J'en ai également profité pour corriger quelques petites fautes d'orthographe dans tes textes (comme "trouverer", "techinicien", "pousuite d'etude"), car pour un portfolio professionnel, c'est très important !
+
+Voici ton code réparé et prêt à l'emploi :
+
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -89,10 +101,10 @@
     </nav>
 
     <section id="accueil" class="hero">
-        <h1 class="reveal-left">Bonjour, je suis <span style="color: var(--primary-color);">louann</span></h1>
+        <h1 class="reveal-left">Bonjour, je suis <span style="color: var(--primary-color);">Louann</span></h1>
         <h2 class="reveal-left delay-1">Je suis en BTS SIO <span id="typed-text"></span></h2>
         <p class="reveal-up delay-2" style="max-width: 600px; color: var(--text-muted);">
-            Étudiant en BTS SIO passionné de l'informatique et ici vous trouverer mes different travaux realiser.
+            Passionné par l'informatique, vous trouverez ici mes différents travaux réalisés.
         </p>
         <a href="#projets" class="btn reveal-up delay-3">Découvrir mon travail</a>
     </section>
@@ -121,7 +133,7 @@
     <section id="contact" style="min-height: 60vh;">
         <h2 class="section-title reveal-up">Me <span>Contacter</span></h2>
         <div style="text-align: center;" class="reveal-up delay-1">
-            <p style="color: var(--text-muted); margin-bottom: 30px;">Je suis actuellement à la recherche d'un stage ou d'une alternance pour pousuite d'etude.</p>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Je suis actuellement à la recherche d'un stage ou d'une alternance pour une poursuite d'études.</p>
             <a href="mailto:louro2903@gmail.com" class="btn">Envoyer un message</a>
         </div>
     </section>
@@ -162,8 +174,9 @@
             retina_detect: true
         });
 
+        // C'est ici que l'erreur se trouvait !
         new Typed('#typed-text', {
-            strings: ['Étudiant en BTS SIO.', 'En apprentissage en tant que techinicien it .','],
+            strings: ['Étudiant en BTS SIO.', 'En apprentissage en tant que technicien IT.'],
             typeSpeed: 50, backSpeed: 30, backDelay: 2000, loop: true
         });
 
@@ -236,3 +249,4 @@
     </script>
 </body>
 </html>
+```
