@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Alternance | Griffine Industrie</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #111111;
+            --primary-color: #00ffcc; 
+            --text-color: #f0f0f0;
+            --text-muted: #888888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+
+        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex;
+            justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-color); }
+        .logo span { color: var(--primary-color); }
+
+        .nav-links a { color: var(--text-color); text-decoration: none; margin-left: 30px; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary-color); }
+        
+        .btn-back { display: inline-flex; align-items: center; padding: 8px 15px; background: rgba(0, 255, 204, 0.1); color: var(--primary-color); border-radius: 5px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s; border: 1px solid transparent; }
+        .btn-back:hover { background: var(--primary-color); color: var(--bg-color); }
+
+        section { min-height: 80vh; padding: 120px 10% 50px; display: flex; flex-direction: column; justify-content: center; }
+
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
+        .section-title span { color: var(--primary-color); }
+
+        /* HEADER ENTREPRISE */
+        .company-header { text-align: center; margin-bottom: 50px; }
+        .company-header h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .company-header p { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto; }
+        
+        .company-stats { display: flex; justify-content: center; gap: 30px; margin-top: 30px; flex-wrap: wrap; }
+        .stat-badge { background: var(--surface-color); padding: 15px 25px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .stat-badge span { display: block; font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        .stat-badge small { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* GRILLES */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        .card h3 { color: var(--text-color); margin-bottom: 20px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        
+        ul.custom-list { list-style-type: none; }
+        ul.custom-list li { color: var(--text-muted); margin-bottom: 12px; position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.5; }
+        ul.custom-list li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
+
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
+        .tech-stack span { padding: 8px 15px; background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); border-radius: 20px; font-size: 0.9rem; }
+
+        footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <div id="tsparticles"></div>
+
+    <nav>
+        <div class="logo">Louann<span>.lemaire-coudray</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="btn-back">← Retour au portfolio</a>
+        </div>
+    </nav>
+
+    <section id="presentation">
+        <div class="company-header reveal-up">
+            <h1>Griffine Industrie</h1>
+            <p>Bilan de mon alternance en tant qu'Apprenti IT (SISR) de Septembre 2025 à Mai 2026.</p>
+            
+            <div class="company-stats">
+                <div class="stat-badge">
+                    <span>🏢 Industrie</span>
+                    <small>Manufacturière (Tissu enduit)</small>
+                </div>
+                <div class="stat-badge">
+                    <span>📍 Nucourt</span>
+                    <small>Localisation</small>
+                </div>
+                <div class="stat-badge">
+                    <span>👥 200</span>
+                    <small>Collaborateurs</small>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title reveal-up" style="margin-top: 50px;">Mes <span>Missions</span></h2>
+        
+        <div class="grid">
+            <div class="card reveal-up">
+                <h3>📞 Support Utilisateur (Niveau 1)</h3>
+                <ul class="custom-list">
+                    <li>Traitement des incidents via Microsoft Teams ou appels téléphoniques.</li>
+                    <li>Assistance technique à distance et sur site pour les collaborateurs.</li>
+                    <li>Installation, préparation et configuration des postes de travail.</li>
+                </ul>
+            </div>
+
+            <div class="card reveal-up delay-1">
+                <h3>🔧 Maintenance Réseau</h3>
+                <ul class="custom-list">
+                    <li>Supervision quotidienne de l'état des équipements réseaux.</li>
+                    <li>Maintenance préventive sur le matériel (switches, routeurs, bornes Wi-Fi).</li>
+                    <li>Intervention sur les pannes de niveau 1 et 2 pour garantir la continuité de service.</li>
+                </ul>
+            </div>
+
+            <div class="card reveal-up delay-2">
+                <h3>⚙️ Administration Systèmes</h3>
+                <ul class="custom-list">
+                    <li>Gestion et maintenance des serveurs sous Windows Server.</li>
+                    <li>Administration des comptes et droits via Active Directory.</li>
+                    <li>Surveillance des sauvegardes et maintien de la sécurité informatique.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="technologies" style="min-height: auto; padding-top: 50px; padding-bottom: 100px;">
+        <h2 class="section-title reveal-up">Environnement <span>Technique</span></h2>
+        <div class="tech-stack reveal-up delay-1">
+            <span>Windows 10 / 11</span>
+            <span>Windows Server</span>
+            <span>Active Directory</span>
+            <span>Switches HP</span>
+            <span>Routeurs</span>
+            <span>Réseau Wi-Fi</span>
+            <span>VMware (Virtualisation)</span>
+            <span>ATERA (Supervision)</span>
+            <span>Microsoft Teams</span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - Louann Lemaire-Coudray | BTS SIO SISR</p>
+    </footer>
+
+    <script>
+        /* ANIMATIONS DE FOND (Particules) */
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 30, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffcc" },
+                shape: { type: "circle" },
+                opacity: { value: 0.2, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ffcc", opacity: 0.1, width: 1 },
+                move: { enable: true, speed: 0.8, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "grab" }, resize: true },
+                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } } }
+            },
+            retina_detect: true
+        });
+
+        /* APPARITION AU SCROLL */
+        const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
+        sr.reveal('.reveal-up', { origin: 'bottom' });
+        sr.reveal('.delay-1', { delay: 200 });
+        sr.reveal('.delay-2', { delay: 400 });
+    </script>
+</body>
+</html>
