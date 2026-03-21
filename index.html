@@ -1,15 +1,4 @@
-Ah, le fameux bug de la virgule ou du guillemet manquant ! C'est un grand classique en développement web : une toute petite erreur de syntaxe en JavaScript fait planter l'intégralité du script. C'est pour cela que plus rien ne s'affichait (ni le texte animé, ni les particules, ni l'apparition au défilement).
 
-**Voici ce qui a causé le problème :**
-Dans la configuration de l'animation de texte (`Typed.js`), tu as écrit :
-`strings: ['Étudiant en BTS SIO.', 'En apprentissage en tant que techinicien it .','],`
-Il y a une apostrophe et une virgule en trop à la fin, ce qui casse la fermeture du tableau. 
-
-J'ai corrigé ce bug dans le code ci-dessous. J'en ai également profité pour corriger quelques petites fautes d'orthographe dans tes textes (comme "trouverer", "techinicien", "pousuite d'etude"), car pour un portfolio professionnel, c'est très important !
-
-Voici ton code réparé et prêt à l'emploi :
-
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
