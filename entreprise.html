@@ -161,3 +161,59 @@
             <div class="card reveal-up delay-1">
                 <h3>🚀 Projet</h3>
                 <div id="content-projet">
+                    <p><em>En cours de rédaction...</em></p>
+                </div>
+                <a href="#" class="btn-action btn-disabled">Bientôt disponible</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="technologies" style="min-height: auto; padding-top: 20px; padding-bottom: 80px;">
+        <h2 class="section-title reveal-up">Environnement <span>Technique</span></h2>
+        <div class="tech-stack reveal-up delay-1">
+            <span>Windows 10 / 11</span>
+            <span>Windows Server</span>
+            <span>Active Directory</span>
+            <span>Switches HP</span>
+            <span>Aruba Central</span>
+            <span>Réseau Wi-Fi</span>
+            <span>VMware</span>
+            <span>ATERA</span>
+            <span>Veeam (Veamxi)</span>
+            <span>Microsoft Teams</span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - Louann Lemaire-Coudray | BTS SIO SISR</p>
+    </footer>
+
+    <script>
+        // Animations des particules de fond
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 30, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffcc" },
+                shape: { type: "circle" },
+                opacity: { value: 0.2, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ffcc", opacity: 0.1, width: 1 },
+                move: { enable: true, speed: 0.8, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "grab" }, resize: true },
+                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } } }
+            },
+            retina_detect: true
+        });
+
+        // Apparition des éléments au défilement
+        const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
+        sr.reveal('.reveal-up', { origin: 'bottom' });
+        sr.reveal('.delay-1', { delay: 200 });
+        sr.reveal('.delay-2', { delay: 400 });
+    </script>
+</body>
+</html>
