@@ -123,7 +123,7 @@
 
         <div class="procedure-box reveal-up">
             <h3>📋 Ma Procédure : Restauration de Fichiers Serveur</h3>
-            <p style="color: var(--text-muted); margin-bottom: 25px;">Résumé des 14 étapes que j'ai documentées pour effectuer une restauration propre via Veeam.</p>
+            <p style="color: var(--text-muted); margin-bottom: 25px;">Résumé des étapes que j'ai documentées pour effectuer une restauration granulaire propre via Veeam.</p>
             
             <div class="procedure-list">
                 <div class="procedure-step">
@@ -136,36 +136,36 @@
                 <div class="procedure-step">
                     <div class="step-number">2</div>
                     <div class="step-text">
-                        <h4>Sélection du Snapshot</h4>
-                        <p>Choix du point de récupération le plus récent avant l'incident et lancement de l'outil "Restore files...".</p>
+                        <h4>Analyse de sauvegarde</h4>
+                        <p>Sélection de la sauvegarde et préparation des fichiers de restauration.</p>
                     </div>
                 </div>
                 <div class="procedure-step">
                     <div class="step-number">3</div>
                     <div class="step-text">
-                        <h4>Exploration</h4>
-                        <p>Authentification administrateur, navigation dans l'arborescence sauvegardée et sélection multiple des fichiers.</p>
+                        <h4>Point de restauration</h4>
+                        <p>Visualisation des différents points de récupération disponibles.</p>
                     </div>
                 </div>
                 <div class="procedure-step">
                     <div class="step-number">4</div>
                     <div class="step-text">
-                        <h4>Paramétrage</h4>
-                        <p>Choix de la destination (emplacement d'origine ou nouveau dossier) et gestion de l'écrasement des fichiers existants.</p>
+                        <h4>Explorateur</h4>
+                        <p>Ouverture de l'explorateur Veeam pour naviguer dans les fichiers.</p>
                     </div>
                 </div>
                 <div class="procedure-step">
                     <div class="step-number">5</div>
                     <div class="step-text">
-                        <h4>Validation & Lancement</h4>
-                        <p>Vérification des options choisies et de l'espace disque, puis démarrage de la restauration.</p>
+                        <h4>Sélection de l'heure</h4>
+                        <p>Sélection de l'heure du backup (snapshot) qui nous convient pour la restauration.</p>
                     </div>
                 </div>
                 <div class="procedure-step">
                     <div class="step-number">6</div>
                     <div class="step-text">
-                        <h4>Suivi & Contrôle</h4>
-                        <p>Suivi de la progression, validation du succès ("Restore completed successfully") et contrôle des logs.</p>
+                        <h4>Sélection du dossier/fichier</h4>
+                        <p>Sélection finale du dossier ou fichier spécifique que l'on souhaite restaurer sur le serveur.</p>
                     </div>
                 </div>
             </div>
@@ -179,19 +179,19 @@
                     <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 1</h4><p>Sélection de la machine</p></div></div><div class="doc-btn">Voir</div>
                 </a>
                 <a href="document_entreprise/veambackup2.png" target="_blank" class="doc-card">
-                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 2</h4><p>Point de restauration</p></div></div><div class="doc-btn">Voir</div>
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 2</h4><p>Analyse de la sauvegarde</p></div></div><div class="doc-btn">Voir</div>
                 </a>
                 <a href="document_entreprise/veambackup3.png" target="_blank" class="doc-card">
-                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 3</h4><p>Analyse de sauvegarde</p></div></div><div class="doc-btn">Voir</div>
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 3</h4><p>Point de restauration</p></div></div><div class="doc-btn">Voir</div>
                 </a>
                 <a href="document_entreprise/veambackup4.png" target="_blank" class="doc-card">
                     <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 4</h4><p>Explorateur Veeam</p></div></div><div class="doc-btn">Voir</div>
                 </a>
                 <a href="document_entreprise/veambackup5.png" target="_blank" class="doc-card">
-                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 5</h4><p>Sélection des données</p></div></div><div class="doc-btn">Voir</div>
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 5</h4><p>Heure du backup</p></div></div><div class="doc-btn">Voir</div>
                 </a>
                 <a href="document_entreprise/veambackup6.png" target="_blank" class="doc-card">
-                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 6</h4><p>Validation finale</p></div></div><div class="doc-btn">Voir</div>
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 6</h4><p>Fichier à restaurer</p></div></div><div class="doc-btn">Voir</div>
                 </a>
             </div>
         </div>
