@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Louann Lemaire-Coudray</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #111111;
+            --primary-color: #00ffcc; 
+            --text-color: #f0f0f0;
+            --text-muted: #888888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+
+        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex;
+            justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-color); }
+        .logo span { color: var(--primary-color); }
+
+        .nav-links a { color: var(--text-color); text-decoration: none; margin-left: 30px; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        section { min-height: 100vh; padding: 120px 10% 50px; display: flex; flex-direction: column; justify-content: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
+        .section-title span { color: var(--primary-color); }
+
+        /* HERO SECTION (NOUVELLE DISPOSITION) */
+        .hero-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 50px; width: 100%; }
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-text h1 { font-size: 4rem; margin-bottom: 10px; line-height: 1.2; }
+        .hero-text h2 { font-size: 2rem; color: var(--text-muted); margin-bottom: 20px; }
+        .typed-cursor { color: var(--primary-color); font-size: 2rem; }
+        
+        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
+        .btn { display: inline-block; padding: 12px 30px; background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; cursor: pointer; text-align: center; }
+        .btn:hover { background: var(--primary-color); color: var(--bg-color); box-shadow: 0 0 20px rgba(0, 255, 204, 0.6); transform: translateY(-3px); }
+        .btn-outline { border-color: rgba(255,255,255,0.2); color: var(--text-color); }
+        .btn-outline:hover { border-color: var(--primary-color); background: rgba(0,255,204,0.1); color: var(--primary-color); box-shadow: none; }
+
+        .hero-image { flex: 1; display: flex; justify-content: center; min-width: 300px; }
+        .img-wrapper { width: 300px; height: 300px; border-radius: 50%; padding: 10px; border: 2px dashed var(--primary-color); position: relative; animation: float 6s ease-in-out infinite; }
+        .img-wrapper img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: var(--surface-color); }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+
+        /* TIMELINE (NOUVEAU PARCOURS) */
+        .parcours-container { display: flex; flex-wrap: wrap; gap: 50px; }
+        .timeline { flex: 1; min-width: 300px; border-left: 2px solid rgba(0,255,204,0.3); padding-left: 30px; position: relative; }
+        .timeline-item { margin-bottom: 40px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -37px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
+        .timeline-date { color: var(--primary-color); font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
+        .timeline-title { font-size: 1.3rem; margin-bottom: 10px; color: var(--text-color); }
+        .timeline-desc { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* SKILLS (BARRES DE PROGRESSION) */
+        .skills-section { flex: 1; min-width: 300px; background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
+        .skill-item { margin-bottom: 20px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem; }
+        .skill-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+        .skill-progress { height: 100%; background: var(--primary-color); border-radius: 4px; box-shadow: 0 0 10px rgba(0,255,204,0.5); }
+
+        /* GRILLES (PROJETS) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+        
+        /* Mise en valeur de la carte Entreprise */
+        .card-highlight { border: 1px solid rgba(0, 255, 204, 0.4); box-shadow: 0 0 20px rgba(0, 255, 204, 0.05); position: relative; overflow: hidden; }
+        .card-highlight::before { content: '⭐ Star'; position: absolute; top: 15px; right: -30px; background: var(--primary-color); color: var(--bg-color); padding: 5px 30px; transform: rotate(45deg); font-size: 0.7rem; font-weight: bold; }
+
+        .card h3 { color: var(--text-color); margin-bottom: 10px; font-size: 1.5rem; }
+        .card p { color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6; }
+        .tech-stack { margin-bottom: 20px; }
+        .tech-stack span { display: inline-block; padding: 5px 10px; background: rgba(0, 255, 204, 0.1); color: var(--primary-color); border-radius: 4px; font-size: 0.8rem; margin-right: 10px; margin-bottom: 10px; }
+
+        footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
+        
+        /* STYLE DU MINI-JEU */
+        #game-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10,10,10,0.98); z-index: 9999; flex-direction: column; align-items: center; justify-content: center; }
+        #game-area { position: relative; width: 80%; max-width: 800px; height: 60vh; border: 2px dashed var(--primary-color); border-radius: 10px; overflow: hidden; background: #000; }
+        #the-bug { position: absolute; font-size: 2.5rem; cursor: crosshair; user-select: none; transition: top 0.2s linear, left 0.2s linear; }
+        #secret-dot { cursor: pointer; color: var(--bg-color); transition: color 0.3s; }
+        #secret-dot:hover { color: var(--primary-color); }
+    </style>
+</head>
+<body>
+
+    <div id="tsparticles"></div>
+
+    <nav>
+        <div class="logo">Louann<span>.lemaire-coudray</span></div>
+        <div class="nav-links">
+            <a href="#accueil">Accueil</a>
+            <a href="#parcours">Profil & Parcours</a>
+            <a href="#projets">Projets E4</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="accueil">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1 class="reveal-left">Bonjour, je suis <span style="color: var(--primary-color);">Louann</span></h1>
+                <h2 class="reveal-left delay-1"><span id="typed-text"></span></h2>
+                <p class="reveal-up delay-2" style="max-width: 600px; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+                    Passionné par l'infrastructure réseau et la cybersécurité. Ce portfolio présente mes réalisations professionnelles et scolaires en vue de l'épreuve E4 du BTS SIO.
+                </p>
+                
+                <div class="hero-buttons reveal-up delay-3">
+                    <a href="#parcours" class="btn">Explorer mon profil</a>
+                    <a href="documents/CV.pdf" target="_blank" class="btn btn-outline">📄 Mon CV</a>
+                    <a href="https://linkedin.com" target="_blank" class="btn btn-outline">🔗 LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="hero-image reveal-up delay-2">
+                <div class="img-wrapper">
+                    <img src="images/photo-profil.png" alt="Photo de Louann" onerror="this.src='https://via.placeholder.com/300/111111/00ffcc?text=Photo+Profil'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours">
+        <h2 class="section-title reveal-up">Mon <span>Parcours</span> & Compétences</h2>
+        
+        <div class="parcours-container">
+            
+            <div class="timeline">
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-date">Sept 2026 - Futur</div>
+                    <div class="timeline-title">Bachelor / Licence Cybersécurité</div>
+                    <div class="timeline-desc">Objectif de poursuite d'études en alternance pour me spécialiser dans la sécurité des infrastructures.</div>
+                </div>
+                
+                <div class="timeline-item reveal-up delay-1">
+                    <div class="timeline-date">Sept 2025 - Août 2026</div>
+                    <div class="timeline-title">Apprenti IT | Griffine Industrie</div>
+                    <div class="timeline-desc">Support utilisateur niveau 1, maintenance de l'infrastructure réseau et administration systèmes au quotidien.</div>
+                </div>
+                
+                <div class="timeline-item reveal-up delay-2">
+                    <div class="timeline-date">Sept 2024 - Juin 2026</div>
+                    <div class="timeline-title">BTS SIO option SISR | H3 Campus</div>
+                    <div class="timeline-desc">Formation aux Services Informatiques aux Organisations, spécialisation Solutions d'Infrastructure, Systèmes et Réseaux.</div>
+                </div>
+            </div>
+
+            <div class="skills-section reveal-up delay-1">
+                <h3 style="margin-bottom: 25px; font-size: 1.3rem;">Expertise Technique</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>Administration Systèmes (Windows Server)</span> <span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>Infrastructure Réseau (Aruba, HP)</span> <span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>Cybersécurité (Cortex XDR, Hornet)</span> <span>75%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>Support Utilisateur & Ticketing (Atera)</span> <span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info"><span>Sauvegarde (Veeam)</span> <span>70%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projets">
+        <h2 class="section-title reveal-up">Mes <span>Projets E4</span></h2>
+        <div class="grid">
+            
+            <div class="card card-highlight reveal-up">
+                <h3>💼 Bilan d'Alternance (Entreprise)</h3>
+                <p>Découvrez en détail l'ensemble de mes missions techniques, mes procédures et les outils professionnels utilisés lors de mon apprentissage chez Griffine Industrie.</p>
+                <div class="tech-stack">
+                    <span>Cybersécurité</span>
+                    <span>Atera RMM</span>
+                    <span>Aruba Central</span>
+                    <span>Veeam Backup</span>
+                </div>
+                <a href="entreprise.html" class="btn" style="width: 100%; text-align: center;">Explorer les missions Entreprise</a>
+            </div>
+
+            <div class="card reveal-up delay-1">
+                <h3>📊 Supervision d'Infrastructure</h3>
+                <p>Projet scolaire complet : mise en place d'une solution de monitoring avec Grafana et Prometheus pour superviser une architecture réseau de A à Z.</p>
+                <div class="tech-stack">
+                    <span>Grafana</span>
+                    <span>Prometheus</span>
+                    <span>Monitoring Linux</span>
+                </div>
+                <a href="#" class="btn btn-outline" style="width: 100%; text-align: center;">Voir le projet E4</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" style="min-height: 60vh;">
+        <h2 class="section-title reveal-up">Me <span>Contacter</span></h2>
+        <div style="text-align: center;" class="reveal-up delay-1">
+            <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                Je suis actuellement à la recherche d'une <strong>alternance</strong> pour intégrer un Bachelor/Licence en Cybersécurité à la rentrée prochaine. N'hésitez pas à me contacter !
+            </p>
+            <a href="mailto:louro2903@gmail.com" class="btn">Envoyer un email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - Louann Lemaire-Coudray | Portfolio BTS SIO SISR<span id="secret-dot">.</span></p>
+    </footer>
+
+    <div id="game-overlay">
+        <h2 style="color: var(--primary-color); margin-bottom: 10px;">🚨 Alerte Bug 🚨</h2>
+        <p style="margin-bottom: 20px; color: var(--text-muted);">Attrape le bug 5 fois pour sécuriser le réseau !</p>
+        <div id="game-area"><div id="the-bug">🐛</div></div>
+        <p style="margin-top: 20px; font-size: 1.5rem;">Bugs fixés : <span id="score" style="color: var(--primary-color); font-weight: bold;">0</span> / 5</p>
+        <button id="close-game" class="btn" style="margin-top: 20px;">Fermer la console</button>
+    </div>
+
+    <script>
+        /* ANIMATIONS DE FOND ET TEXTE */
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 40, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffcc" },
+                shape: { type: "circle" },
+                opacity: { value: 0.3, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ffcc", opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 1, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "grab" }, resize: true },
+                modes: { grab: { distance: 140, line_linked: { opacity: 0.8 } } }
+            },
+            retina_detect: true
+        });
+
+        /* Effet Machine à écrire mis à jour */
+        new Typed('#typed-text', {
+            strings: [
+                'Étudiant en BTS SIO SISR.', 
+                'Apprenti IT chez Griffine Industrie.',
+                'Passionné par la Cybersécurité.'
+            ],
+            typeSpeed: 50, backSpeed: 30, backDelay: 2000, loop: true
+        });
+
+        const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
+        sr.reveal('.reveal-up', { origin: 'bottom' });
+        sr.reveal('.reveal-left', { origin: 'left' });
+        sr.reveal('.delay-1', { delay: 200 });
+        sr.reveal('.delay-2', { delay: 400 });
+        sr.reveal('.delay-3', { delay: 600 });
+
+        /* LOGIQUE DU MINI-JEU CACHÉ */
+        const trigger = document.getElementById('secret-dot');
+        const overlay = document.getElementById('game-overlay');
+        const bug = document.getElementById('the-bug');
+        const scoreDisplay = document.getElementById('score');
+        const closeBtn = document.getElementById('close-game');
+        const gameArea = document.getElementById('game-area');
+
+        let score = 0;
+        let bugInterval;
+        let currentSpeed = 900;
+
+        function moveBug() {
+            const maxX = gameArea.clientWidth - 50;
+            const maxY = gameArea.clientHeight - 50;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            bug.style.left = randomX + 'px';
+            bug.style.top = randomY + 'px';
+        }
+
+        trigger.addEventListener('click', () => {
+            overlay.style.display = 'flex';
+            score = 0;
+            currentSpeed = 900;
+            scoreDisplay.textContent = score;
+            bug.style.display = 'block';
+            moveBug();
+            bugInterval = setInterval(moveBug, currentSpeed);
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            clearInterval(bugInterval);
+        });
+
+        bug.addEventListener('click', () => {
+            score++;
+            scoreDisplay.textContent = score;
+            if (score >= 5) {
+                clearInterval(bugInterval);
+                bug.style.display = 'none';
+                alert('🎉 GÉANT ! Tu as fixé tous les bugs ! Ton réseau est sécurisé.');
+                setTimeout(() => { overlay.style.display = 'none'; }, 500);
+            } else {
+                clearInterval(bugInterval);
+                currentSpeed -= 150;
+                moveBug(); 
+                bugInterval = setInterval(moveBug, currentSpeed);
+            }
+        });
+    </script>
+</body>
+</html>
