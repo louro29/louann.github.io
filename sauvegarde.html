@@ -1,1 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauvegarde & Veeam | Griffine Industrie</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
 
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #111111;
+            --primary-color: #00ffcc; 
+            --text-color: #f0f0f0;
+            --text-muted: #888888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+
+        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex;
+            justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-color); }
+        .logo span { color: var(--primary-color); }
+
+        .btn-back { display: inline-flex; align-items: center; padding: 8px 15px; background: rgba(0, 255, 204, 0.1); color: var(--primary-color); border-radius: 5px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s; border: 1px solid transparent; }
+        .btn-back:hover { background: var(--primary-color); color: var(--bg-color); }
+
+        section { padding: 120px 10% 50px; display: flex; flex-direction: column; justify-content: center; }
+
+        .section-title { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
+        .section-title span { color: var(--primary-color); }
+        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* GRILLES DE CARTES (Fonctionnalités) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .card { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        .card h3 { color: var(--text-color); margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
+
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tech-stack span { padding: 6px 12px; background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); border-radius: 20px; font-size: 0.85rem; }
+
+        /* EN-TÊTE OUTIL */
+        .tool-header { margin-top: 40px; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .tool-header h2 { font-size: 2rem; color: var(--text-color); display: flex; align-items: center; gap: 15px; }
+        .tool-header h2 span { color: var(--primary-color); font-size: 1.2rem; font-weight: 400; }
+
+        /* TEXTE DE LA PROCÉDURE */
+        .procedure-box { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(0,255,204,0.2); margin-bottom: 40px; }
+        .procedure-box h3 { color: var(--primary-color); margin-bottom: 20px; font-size: 1.4rem; }
+        .procedure-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .procedure-step { display: flex; gap: 15px; align-items: flex-start; }
+        .step-number { background: rgba(0,255,204,0.1); color: var(--primary-color); font-weight: bold; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0; border: 1px solid var(--primary-color); }
+        .step-text h4 { color: var(--text-color); font-size: 1rem; margin-bottom: 5px; }
+        .step-text p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+
+        /* STYLE DES DOCUMENTS JOINTS */
+        .docs-container { margin-bottom: 60px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 10px; border: 1px dashed rgba(255,255,255,0.1); }
+        .docs-container h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--text-color); }
+        .docs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        
+        .doc-card { display: flex; align-items: center; justify-content: space-between; background: var(--surface-color); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; text-decoration: none; color: var(--text-color); }
+        .doc-card:hover { border-color: var(--primary-color); background: rgba(0, 255, 204, 0.05); transform: translateY(-3px); }
+        .doc-info { display: flex; align-items: center; gap: 15px; }
+        .doc-icon { font-size: 1.5rem; }
+        .doc-details h4 { font-size: 0.95rem; margin-bottom: 3px; }
+        .doc-details p { font-size: 0.8rem; color: var(--text-muted); }
+        .doc-btn { padding: 5px 10px; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 4px; font-size: 0.8rem; transition: 0.3s; }
+        .doc-card:hover .doc-btn { background: var(--primary-color); color: var(--bg-color); }
+
+        footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <div id="tsparticles"></div>
+
+    <nav>
+        <div class="logo">Louann<span>.lemaire-coudray</span></div>
+        <div class="nav-links">
+            <a href="entreprise.html" class="btn-back">← Retour à l'entreprise</a>
+        </div>
+    </nav>
+
+    <section id="sauvegarde">
+        <h1 class="section-title reveal-up">Pôle <span>Sauvegarde</span></h1>
+        <p class="section-subtitle reveal-up">Mise en place et gestion des stratégies de sauvegarde pour assurer l'intégrité, la sécurité et la disponibilité des données de Griffine Industrie.</p>
+
+        <div class="tool-header reveal-up">
+            <h2>💾 Veeam Backup & Replication <span>| Protection des données</span></h2>
+        </div>
+        
+        <div class="grid">
+            <div class="card reveal-up">
+                <h3>Gestion des Sauvegardes</h3>
+                <p>Utilisation de la console Veeam Backup & Replication pour localiser et gérer les sauvegardes des serveurs de l'entreprise.</p>
+                <div class="tech-stack"><span>Console Veeam</span><span>Backups</span></div>
+            </div>
+            
+            <div class="card reveal-up delay-1">
+                <h3>Points de Récupération</h3>
+                <p>Sélection précise des points de récupération (snapshots) avec date et heure pour restaurer l'état exact avant la perte de données.</p>
+                <div class="tech-stack"><span>Snapshots</span><span>Historique</span></div>
+            </div>
+            
+            <div class="card reveal-up delay-2">
+                <h3>Restauration Granulaire</h3>
+                <p>Exploration du système de fichiers sauvegardé pour sélectionner et restaurer des fichiers spécifiques vers leur emplacement d'origine ou une autre destination.</p>
+                <div class="tech-stack"><span>File Recovery</span><span>Options Avancées</span></div>
+            </div>
+        </div>
+
+        <div class="procedure-box reveal-up">
+            <h3>📋 Ma Procédure : Restauration de Fichiers Serveur</h3>
+            <p style="color: var(--text-muted); margin-bottom: 25px;">Résumé des 14 étapes que j'ai documentées pour effectuer une restauration propre via Veeam.</p>
+            
+            <div class="procedure-list">
+                <div class="procedure-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <h4>Accès & Localisation</h4>
+                        <p>Ouverture de la console Veeam et localisation de la sauvegarde du serveur concerné.</p>
+                    </div>
+                </div>
+                <div class="procedure-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <h4>Sélection du Snapshot</h4>
+                        <p>Choix du point de récupération le plus récent avant l'incident et lancement de l'outil "Restore files...".</p>
+                    </div>
+                </div>
+                <div class="procedure-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <h4>Exploration</h4>
+                        <p>Authentification administrateur, navigation dans l'arborescence sauvegardée et sélection multiple des fichiers.</p>
+                    </div>
+                </div>
+                <div class="procedure-step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <h4>Paramétrage</h4>
+                        <p>Choix de la destination (emplacement d'origine ou nouveau dossier) et gestion de l'écrasement des fichiers existants.</p>
+                    </div>
+                </div>
+                <div class="procedure-step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">
+                        <h4>Validation & Lancement</h4>
+                        <p>Vérification des options choisies et de l'espace disque, puis démarrage de la restauration.</p>
+                    </div>
+                </div>
+                <div class="procedure-step">
+                    <div class="step-number">6</div>
+                    <div class="step-text">
+                        <h4>Suivi & Contrôle</h4>
+                        <p>Suivi de la progression, validation du succès ("Restore completed successfully") et contrôle des logs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="docs-container reveal-up">
+            <h3>📸 Preuves Visuelles : Les 6 grandes étapes</h3>
+            
+            <div class="docs-grid">
+                <a href="document_entreprise/veambackup1.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 1</h4><p>Sélection de la machine</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/veambackup2.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 2</h4><p>Point de restauration</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/veambackup3.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 3</h4><p>Analyse de sauvegarde</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/veambackup4.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 4</h4><p>Explorateur Veeam</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/veambackup5.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 5</h4><p>Sélection des données</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/veambackup6.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Étape 6</h4><p>Validation finale</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - Louann Lemaire-Coudray | BTS SIO SISR</p>
+    </footer>
+
+    <script>
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 30, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffcc" },
+                shape: { type: "circle" },
+                opacity: { value: 0.2, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ffcc", opacity: 0.1, width: 1 },
+                move: { enable: true, speed: 0.8, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "grab" }, resize: true },
+                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } } }
+            },
+            retina_detect: true
+        });
+
+        const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
+        sr.reveal('.reveal-up', { origin: 'bottom' });
+        sr.reveal('.delay-1', { delay: 200 });
+        sr.reveal('.delay-2', { delay: 400 });
+    </script>
+</body>
+</html>
