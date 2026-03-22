@@ -40,9 +40,25 @@
         .section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
         .section-title span { color: var(--primary-color); }
 
-        /* HEADER ENTREPRISE */
+        /* HEADER ENTREPRISE AVEC LE LOGO */
         .company-header { text-align: center; margin-bottom: 50px; }
-        .company-header h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        
+        .company-logo-wrapper {
+            background: #f8fafc; 
+            padding: 20px 40px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.15); 
+            border: 1px solid rgba(0, 255, 204, 0.3);
+        }
+        .company-logo {
+            max-width: 300px; 
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .company-header p { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto; }
         
         .company-stats { display: flex; justify-content: center; gap: 30px; margin-top: 30px; flex-wrap: wrap; }
@@ -60,10 +76,6 @@
         /* Boutons d'action dans les cartes */
         .btn-action { display: inline-block; padding: 8px 20px; background: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 5px; text-decoration: none; font-size: 0.9rem; text-align: center; transition: 0.3s; cursor: pointer; }
         .btn-action:hover { background: var(--primary-color); color: var(--bg-color); }
-
-        ul.custom-list { list-style-type: none; margin-bottom: 20px; }
-        ul.custom-list li { color: var(--text-muted); margin-bottom: 12px; position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.5; }
-        ul.custom-list li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
 
         /* DOCS ET TECHNOS */
         .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
@@ -94,7 +106,11 @@
 
     <section id="presentation">
         <div class="company-header reveal-up">
-            <h1>Griffine Industrie</h1>
+            
+            <div class="company-logo-wrapper">
+                <img src="images/logo-griffine.png" alt="Logo Griffine Industrie" class="company-logo">
+            </div>
+
             <p>Bilan de mon alternance en tant qu'Apprenti IT (SISR) de Septembre 2025 à Mai 2026.</p>
             
             <div class="company-stats">
@@ -128,15 +144,100 @@
             <div class="card reveal-up delay-1">
                 <h3>💻 Maintenance User / Atera</h3>
                 <div id="content-maintenance">
-                    <p><em>En attente de tes informations (README.md) pour détailler les tâches de ce dossier...</em></p>
+                    <p>Support technique N1, gestion des tickets et supervision du parc avec Atera RMM.</p>
                 </div>
-                <a href="#documents" class="btn-action">Voir les tâches</a>
+                <a href="maintenance.html" class="btn-action">Voir les tâches</a>
             </div>
 
             <div class="card reveal-up delay-2">
                 <h3>🌐 Réseaux / Aruba Central</h3>
                 <div id="content-reseaux">
-                    <p><em>En attente de tes informations (README.md) pour détailler les tâches de ce dossier...</em></p>
+                    <p><em>En attente de tes informations pour détailler les tâches de ce dossier...</em></p>
                 </div>
                 <a href="#documents" class="btn-action">Voir les tâches</a>
             </div>
+
+            <div class="card reveal-up">
+                <h3>💾 Sauvegarde / Veamxi</h3>
+                <div id="content-sauvegarde">
+                    <p><em>En attente de tes informations pour détailler les tâches de ce dossier...</em></p>
+                </div>
+                <a href="#documents" class="btn-action">Voir les tâches</a>
+            </div>
+
+            <div class="card reveal-up delay-1">
+                <h3>🚀 Projet</h3>
+                <div id="content-projet">
+                    <p><em>En attente de tes informations pour détailler les projets spécifiques menés en entreprise...</em></p>
+                </div>
+                <a href="#documents" class="btn-action">Voir les tâches</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="technologies" style="min-height: auto; padding-top: 20px;">
+        <h2 class="section-title reveal-up">Environnement <span>Technique</span></h2>
+        <div class="tech-stack reveal-up delay-1">
+            <span>Windows 10 / 11</span>
+            <span>Windows Server</span>
+            <span>Active Directory</span>
+            <span>Switches HP</span>
+            <span>Aruba Central</span>
+            <span>Réseau Wi-Fi</span>
+            <span>VMware</span>
+            <span>ATERA</span>
+            <span>Veeam (Veamxi)</span>
+            <span>Microsoft Teams</span>
+        </div>
+    </section>
+
+    <section id="documents" style="min-height: auto; padding-top: 80px; padding-bottom: 100px;">
+        <h2 class="section-title reveal-up">Dossiers & <span>Livrables</span></h2>
+        
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+            <a href="document_entreprise/ton-rapport.pdf" target="_blank" class="doc-card reveal-up">
+                <div class="doc-info">
+                    <div class="doc-icon">📄</div>
+                    <div class="doc-details">
+                        <h4>Bilan d'Alternance (PDF)</h4>
+                        <p>Rapport détaillé de mes missions et compétences.</p>
+                    </div>
+                </div>
+                <div class="doc-btn">Ouvrir</div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - Louann Lemaire-Coudray | BTS SIO SISR</p>
+    </footer>
+
+    <script>
+        // Animations des particules de fond
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 30, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffcc" },
+                shape: { type: "circle" },
+                opacity: { value: 0.2, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ffcc", opacity: 0.1, width: 1 },
+                move: { enable: true, speed: 0.8, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "grab" }, resize: true },
+                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } } }
+            },
+            retina_detect: true
+        });
+
+        // Apparition des éléments au défilement
+        const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
+        sr.reveal('.reveal-up', { origin: 'bottom' });
+        sr.reveal('.delay-1', { delay: 200 });
+        sr.reveal('.delay-2', { delay: 400 });
+    </script>
+</body>
+</html>
