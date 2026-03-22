@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance & Support | Griffine Industrie</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
 
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #111111;
+            --primary-color: #00ffcc; 
+            --text-color: #f0f0f0;
+            --text-muted: #888888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+
+        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex;
+            justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-color); }
+        .logo span { color: var(--primary-color); }
+
+        .btn-back { display: inline-flex; align-items: center; padding: 8px 15px; background: rgba(0, 255, 204, 0.1); color: var(--primary-color); border-radius: 5px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s; border: 1px solid transparent; }
+        .btn-back:hover { background: var(--primary-color); color: var(--bg-color); }
+
+        section { padding: 120px 10% 50px; display: flex; flex-direction: column; justify-content: center; }
+
+        .section-title { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
+        .section-title span { color: var(--primary-color); }
+        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* GRILLES DE CARTES (Fonctionnalités) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .card { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        .card h3 { color: var(--text-color); margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
+
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tech-stack span { padding: 6px 12px; background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); border-radius: 20px; font-size: 0.85rem; }
+
+        /* EN-TÊTE OUTIL */
+        .tool-header { margin-top: 40px; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .tool-header h2 { font-size: 2rem; color: var(--text-color); display: flex; align-items: center; gap: 15px; }
+        .tool-header h2 span { color: var(--primary-color); font-size: 1.2rem; font-weight: 400; }
+
+        /* STYLE DES DOCUMENTS JOINTS */
+        .docs-container { margin-bottom: 60px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 10px; border: 1px dashed rgba(255,255,255,0.1); }
+        .docs-container h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--text-color); }
+        .docs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        
+        .doc-card { display: flex; align-items: center; justify-content: space-between; background: var(--surface-color); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; text-decoration: none; color: var(--text-color); }
+        .doc-card:hover { border-color: var(--primary-color); background: rgba(0, 255, 204, 0.05); transform: translateY(-3px); }
+        .doc-info { display: flex; align-items: center; gap: 15px; }
+        .doc-icon { font-size: 1.5rem; }
+        .doc-details h4 { font-size: 0.95rem; margin-bottom: 3px; }
+        .doc-details p { font-size: 0.8rem; color: var(--text-muted); }
+        .doc-btn { padding: 5px 10px; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 4px; font-size: 0.8rem; transition: 0.3s; }
+        .doc-card:hover .doc-btn { background: var(--primary-color); color: var(--bg-color); }
+
+        footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <div id="tsparticles"></div>
+
+    <nav>
+        <div class="logo">Louann<span>.lemaire-coudray</span></div>
+        <div class="nav-links">
+            <a href="entreprise.html" class="btn-back">← Retour à l'entreprise</a>
+        </div>
+    </nav>
+
+    <section id="maintenance">
+        <h1 class="section-title reveal-up">Maintenance <span>User & Atera</span></h1>
+        <p class="section-subtitle reveal-up">Support technique de niveau 1, supervision de parc informatique et prise en main à distance pour assurer la continuité de service des collaborateurs de Griffine Industrie.</p>
+
+        <div class="tool-header reveal-up">
+            <h2>💻 Atera <span>| Solution RMM & Supervision Globale</span></h2>
+        </div>
+        
+        <div class="grid">
+            <div class="card reveal-up">
+                <h3>Supervision & Alertes</h3>
+                <p>Système intelligent surveillant les équipements en continu. Les alertes sont classées par criticité (rouge pour intervention immédiate, orange pour avertissement). Le monitoring temps réel affiche l'utilisation CPU et mémoire.</p>
+                <div class="tech-stack"><span>Monitoring Temps Réel</span><span>Gestion d'Alertes</span></div>
+            </div>
+            
+            <div class="card reveal-up delay-1">
+                <h3>Diagnostic & Inventaire</h3>
+                <p>Vue détaillée de chaque équipement (nom de domaine, IP, dernier utilisateur connecté). La plateforme propose une gestion multi-onglets (Matériel, Disques, OS et Sécurité) pour cibler efficacement la maintenance.</p>
+                <div class="tech-stack"><span>Analyse Hardware</span><span>Inventaire Réseau</span></div>
+            </div>
+            
+            <div class="card reveal-up delay-2">
+                <h3>Support & Interventions</h3>
+                <p>Exécution d'actions à distance centralisées : connexion aux postes, gestion des services et installation de logiciels. Un journal d'activité intégré trace l'historique des opérations de maintenance avec un horodatage précis.</p>
+                <div class="tech-stack"><span>Prise en main à distance</span><span>Journal de Logs</span></div>
+            </div>
+        </div>
+        
+        <div class="docs-container reveal-up">
+            <h3>📸 Captures & Preuves (Atera)</h3>
+            <div class="docs-grid">
+                <a href="document_entreprise/atera-alertes.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🚨</div><div class="doc-details"><h4>Tableau des Alertes</h4><p>Vue des incidents classifiés.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/atera-equipement.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖥️</div><div class="doc-details"><h4>Fiche Équipement</h4><p>Détails et monitoring.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - Louann Lemaire-Coudray | BTS SIO SISR</p>
+    </footer>
+
+    <script>
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 30, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffcc" },
+                shape: { type: "circle" },
+                opacity: { value: 0.2, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ffcc", opacity: 0.1, width: 1 },
+                move: { enable: true, speed: 0.8, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "grab" }, resize: true },
+                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } } }
+            },
+            retina_detect: true
+        });
+
+        const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
+        sr.reveal('.reveal-up', { origin: 'bottom' });
+        sr.reveal('.delay-1', { delay: 200 });
+        sr.reveal('.delay-2', { delay: 400 });
+    </script>
+</body>
+</html>
