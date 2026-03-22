@@ -50,20 +50,25 @@
         .stat-badge span { display: block; font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
         .stat-badge small { color: var(--text-muted); font-size: 0.85rem; }
 
-        /* GRILLES */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease; }
+        /* GRILLES DES MISSIONS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
-        .card h3 { color: var(--text-color); margin-bottom: 20px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .card h3 { color: var(--text-color); margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
         
-        ul.custom-list { list-style-type: none; }
+        /* Boutons d'action dans les cartes */
+        .btn-action { display: inline-block; padding: 8px 20px; background: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 5px; text-decoration: none; font-size: 0.9rem; text-align: center; transition: 0.3s; cursor: pointer; }
+        .btn-action:hover { background: var(--primary-color); color: var(--bg-color); }
+
+        ul.custom-list { list-style-type: none; margin-bottom: 20px; }
         ul.custom-list li { color: var(--text-muted); margin-bottom: 12px; position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.5; }
         ul.custom-list li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
 
+        /* DOCS ET TECHNOS */
         .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
         .tech-stack span { padding: 8px 15px; background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); border-radius: 20px; font-size: 0.9rem; }
 
-        /* NOUVEAU STYLE : CARTES DOCUMENTS */
         .doc-card { display: flex; align-items: center; justify-content: space-between; background: var(--surface-color); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; text-decoration: none; color: var(--text-color); }
         .doc-card:hover { border-color: var(--primary-color); background: rgba(0, 255, 204, 0.05); transform: translateY(-3px); }
         .doc-info { display: flex; align-items: center; gap: 15px; }
@@ -108,35 +113,50 @@
             </div>
         </div>
 
-        <h2 class="section-title reveal-up" style="margin-top: 50px;">Mes <span>Missions</span></h2>
+        <h2 class="section-title reveal-up" style="margin-top: 50px;">Mes <span>Domaines d'Intervention</span></h2>
         
         <div class="grid">
+            
             <div class="card reveal-up">
-                <h3>📞 Support Utilisateur</h3>
-                <ul class="custom-list">
-                    <li>Traitement des incidents via Microsoft Teams ou appels.</li>
-                    <li>Assistance technique à distance et sur site.</li>
-                    <li>Installation et configuration des postes de travail.</li>
-                </ul>
+                <h3>🛡️ Cybersécurité</h3>
+                <div id="content-cybersecurite">
+                    <p><em>En attente de tes informations (README.md) pour détailler les tâches de ce dossier...</em></p>
+                </div>
+                <a href="#documents" class="btn-action">Voir les tâches</a>
             </div>
 
             <div class="card reveal-up delay-1">
-                <h3>🔧 Maintenance Réseau</h3>
-                <ul class="custom-list">
-                    <li>Supervision quotidienne des équipements réseaux.</li>
-                    <li>Maintenance préventive (switches, routeurs, Wi-Fi).</li>
-                    <li>Intervention sur les pannes de niveau 1 et 2.</li>
-                </ul>
+                <h3>💻 Maintenance User / Atera</h3>
+                <div id="content-maintenance">
+                    <p><em>En attente de tes informations (README.md) pour détailler les tâches de ce dossier...</em></p>
+                </div>
+                <a href="#documents" class="btn-action">Voir les tâches</a>
             </div>
 
             <div class="card reveal-up delay-2">
-                <h3>⚙️ Administration Systèmes</h3>
-                <ul class="custom-list">
-                    <li>Gestion et maintenance des serveurs Windows Server.</li>
-                    <li>Administration des comptes via Active Directory.</li>
-                    <li>Surveillance des sauvegardes et de la sécurité.</li>
-                </ul>
+                <h3>🌐 Réseaux / Aruba Central</h3>
+                <div id="content-reseaux">
+                    <p><em>En attente de tes informations (README.md) pour détailler les tâches de ce dossier...</em></p>
+                </div>
+                <a href="#documents" class="btn-action">Voir les tâches</a>
             </div>
+
+            <div class="card reveal-up">
+                <h3>💾 Sauvegarde / Veamxi</h3>
+                <div id="content-sauvegarde">
+                    <p><em>En attente de tes informations (README.md) pour détailler les tâches de ce dossier...</em></p>
+                </div>
+                <a href="#documents" class="btn-action">Voir les tâches</a>
+            </div>
+
+            <div class="card reveal-up delay-1">
+                <h3>🚀 Projet</h3>
+                <div id="content-projet">
+                    <p><em>En attente de tes informations (README.md) pour détailler les projets spécifiques menés en entreprise...</em></p>
+                </div>
+                <a href="#documents" class="btn-action">Voir les tâches</a>
+            </div>
+
         </div>
     </section>
 
@@ -147,82 +167,13 @@
             <span>Windows Server</span>
             <span>Active Directory</span>
             <span>Switches HP</span>
-            <span>Routeurs</span>
+            <span>Aruba Central</span>
             <span>Réseau Wi-Fi</span>
-            <span>VMware (Virtualisation)</span>
-            <span>ATERA (Supervision)</span>
+            <span>VMware</span>
+            <span>ATERA</span>
+            <span>Veeam (Veamxi)</span>
             <span>Microsoft Teams</span>
         </div>
     </section>
 
-    <section id="documents" style="min-height: auto; padding-top: 80px; padding-bottom: 100px;">
-        <h2 class="section-title reveal-up">Dossiers & <span>Livrables</span></h2>
-        
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
-            
-            <a href="document_entreprise/ton-rapport.pdf" target="_blank" class="doc-card reveal-up">
-                <div class="doc-info">
-                    <div class="doc-icon">📄</div>
-                    <div class="doc-details">
-                        <h4>Bilan d'Alternance (PDF)</h4>
-                        <p>Rapport détaillé de mes missions et compétences.</p>
-                    </div>
-                </div>
-                <div class="doc-btn">Ouvrir</div>
-            </a>
-
-            <a href="document_entreprise/doc-technique.pdf" target="_blank" class="doc-card reveal-up delay-1">
-                <div class="doc-info">
-                    <div class="doc-icon">🛠️</div>
-                    <div class="doc-details">
-                        <h4>Documentation Technique</h4>
-                        <p>Procédures créées pour l'administration système.</p>
-                    </div>
-                </div>
-                <div class="doc-btn">Ouvrir</div>
-            </a>
-
-            <a href="document_entreprise/schema-reseau.png" target="_blank" class="doc-card reveal-up delay-2">
-                <div class="doc-info">
-                    <div class="doc-icon">📊</div>
-                    <div class="doc-details">
-                        <h4>Schéma Réseau</h4>
-                        <p>Topologie de l'infrastructure de l'entreprise.</p>
-                    </div>
-                </div>
-                <div class="doc-btn">Ouvrir</div>
-            </a>
-
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 - Louann Lemaire-Coudray | BTS SIO SISR</p>
-    </footer>
-
-    <script>
-        tsParticles.load("tsparticles", {
-            particles: {
-                number: { value: 30, density: { enable: true, value_area: 800 } },
-                color: { value: "#00ffcc" },
-                shape: { type: "circle" },
-                opacity: { value: 0.2, random: true },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: "#00ffcc", opacity: 0.1, width: 1 },
-                move: { enable: true, speed: 0.8, out_mode: "out" }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: { onhover: { enable: true, mode: "grab" }, resize: true },
-                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } } }
-            },
-            retina_detect: true
-        });
-
-        const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
-        sr.reveal('.reveal-up', { origin: 'bottom' });
-        sr.reveal('.delay-1', { delay: 200 });
-        sr.reveal('.delay-2', { delay: 400 });
-    </script>
-</body>
-</html>
+    <section id="documents" style="min-height: auto; padding-top:
