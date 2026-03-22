@@ -76,19 +76,12 @@
         /* Boutons d'action dans les cartes */
         .btn-action { display: inline-block; padding: 8px 20px; background: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 5px; text-decoration: none; font-size: 0.9rem; text-align: center; transition: 0.3s; cursor: pointer; }
         .btn-action:hover { background: var(--primary-color); color: var(--bg-color); }
+        .btn-disabled { border-color: rgba(255,255,255,0.1); color: var(--text-muted); cursor: not-allowed; }
+        .btn-disabled:hover { background: transparent; color: var(--text-muted); }
 
         /* DOCS ET TECHNOS */
         .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
         .tech-stack span { padding: 8px 15px; background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); border-radius: 20px; font-size: 0.9rem; }
-
-        .doc-card { display: flex; align-items: center; justify-content: space-between; background: var(--surface-color); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; text-decoration: none; color: var(--text-color); }
-        .doc-card:hover { border-color: var(--primary-color); background: rgba(0, 255, 204, 0.05); transform: translateY(-3px); }
-        .doc-info { display: flex; align-items: center; gap: 15px; }
-        .doc-icon { font-size: 2rem; }
-        .doc-details h4 { font-size: 1.1rem; margin-bottom: 5px; }
-        .doc-details p { font-size: 0.85rem; color: var(--text-muted); }
-        .doc-btn { padding: 6px 12px; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 4px; font-size: 0.85rem; transition: 0.3s; }
-        .doc-card:hover .doc-btn { background: var(--primary-color); color: var(--bg-color); }
 
         footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
     </style>
@@ -152,31 +145,31 @@
             <div class="card reveal-up delay-2">
                 <h3>🌐 Réseaux / Aruba Central</h3>
                 <div id="content-reseaux">
-                    <p><em>En attente de tes informations pour détailler les tâches de ce dossier...</em></p>
+                    <p><em>En cours de rédaction...</em></p>
                 </div>
-                <a href="#documents" class="btn-action">Voir les tâches</a>
+                <a href="#" class="btn-action btn-disabled">Bientôt disponible</a>
             </div>
 
             <div class="card reveal-up">
                 <h3>💾 Sauvegarde / Veamxi</h3>
                 <div id="content-sauvegarde">
-                    <p><em>En attente de tes informations pour détailler les tâches de ce dossier...</em></p>
+                    <p><em>En cours de rédaction...</em></p>
                 </div>
-                <a href="#documents" class="btn-action">Voir les tâches</a>
+                <a href="#" class="btn-action btn-disabled">Bientôt disponible</a>
             </div>
 
             <div class="card reveal-up delay-1">
                 <h3>🚀 Projet</h3>
                 <div id="content-projet">
-                    <p><em>En attente de tes informations pour détailler les projets spécifiques menés en entreprise...</em></p>
+                    <p><em>En cours de rédaction...</em></p>
                 </div>
-                <a href="#documents" class="btn-action">Voir les tâches</a>
+                <a href="#" class="btn-action btn-disabled">Bientôt disponible</a>
             </div>
 
         </div>
     </section>
 
-    <section id="technologies" style="min-height: auto; padding-top: 20px;">
+    <section id="technologies" style="min-height: auto; padding-top: 20px; padding-bottom: 80px;">
         <h2 class="section-title reveal-up">Environnement <span>Technique</span></h2>
         <div class="tech-stack reveal-up delay-1">
             <span>Windows 10 / 11</span>
@@ -189,23 +182,6 @@
             <span>ATERA</span>
             <span>Veeam (Veamxi)</span>
             <span>Microsoft Teams</span>
-        </div>
-    </section>
-
-    <section id="documents" style="min-height: auto; padding-top: 80px; padding-bottom: 100px;">
-        <h2 class="section-title reveal-up">Dossiers & <span>Livrables</span></h2>
-        
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
-            <a href="document_entreprise/ton-rapport.pdf" target="_blank" class="doc-card reveal-up">
-                <div class="doc-info">
-                    <div class="doc-icon">📄</div>
-                    <div class="doc-details">
-                        <h4>Bilan d'Alternance (PDF)</h4>
-                        <p>Rapport détaillé de mes missions et compétences.</p>
-                    </div>
-                </div>
-                <div class="doc-btn">Ouvrir</div>
-            </a>
         </div>
     </section>
 
