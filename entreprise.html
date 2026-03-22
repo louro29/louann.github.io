@@ -32,9 +32,6 @@
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-color); }
         .logo span { color: var(--primary-color); }
 
-        .nav-links a { color: var(--text-color); text-decoration: none; margin-left: 30px; font-weight: 600; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--primary-color); }
-        
         .btn-back { display: inline-flex; align-items: center; padding: 8px 15px; background: rgba(0, 255, 204, 0.1); color: var(--primary-color); border-radius: 5px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s; border: 1px solid transparent; }
         .btn-back:hover { background: var(--primary-color); color: var(--bg-color); }
 
@@ -66,6 +63,16 @@
         .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
         .tech-stack span { padding: 8px 15px; background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); border-radius: 20px; font-size: 0.9rem; }
 
+        /* NOUVEAU STYLE : CARTES DOCUMENTS */
+        .doc-card { display: flex; align-items: center; justify-content: space-between; background: var(--surface-color); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; text-decoration: none; color: var(--text-color); }
+        .doc-card:hover { border-color: var(--primary-color); background: rgba(0, 255, 204, 0.05); transform: translateY(-3px); }
+        .doc-info { display: flex; align-items: center; gap: 15px; }
+        .doc-icon { font-size: 2rem; }
+        .doc-details h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .doc-details p { font-size: 0.85rem; color: var(--text-muted); }
+        .doc-btn { padding: 6px 12px; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 4px; font-size: 0.85rem; transition: 0.3s; }
+        .doc-card:hover .doc-btn { background: var(--primary-color); color: var(--bg-color); }
+
         footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
     </style>
 </head>
@@ -88,7 +95,7 @@
             <div class="company-stats">
                 <div class="stat-badge">
                     <span>🏢 Industrie</span>
-                    <small>Manufacturière (Tissu enduit)</small>
+                    <small>Manufacturière</small>
                 </div>
                 <div class="stat-badge">
                     <span>📍 Nucourt</span>
@@ -105,35 +112,35 @@
         
         <div class="grid">
             <div class="card reveal-up">
-                <h3>📞 Support Utilisateur (Niveau 1)</h3>
+                <h3>📞 Support Utilisateur</h3>
                 <ul class="custom-list">
-                    <li>Traitement des incidents via Microsoft Teams ou appels téléphoniques.</li>
-                    <li>Assistance technique à distance et sur site pour les collaborateurs.</li>
-                    <li>Installation, préparation et configuration des postes de travail.</li>
+                    <li>Traitement des incidents via Microsoft Teams ou appels.</li>
+                    <li>Assistance technique à distance et sur site.</li>
+                    <li>Installation et configuration des postes de travail.</li>
                 </ul>
             </div>
 
             <div class="card reveal-up delay-1">
                 <h3>🔧 Maintenance Réseau</h3>
                 <ul class="custom-list">
-                    <li>Supervision quotidienne de l'état des équipements réseaux.</li>
-                    <li>Maintenance préventive sur le matériel (switches, routeurs, bornes Wi-Fi).</li>
-                    <li>Intervention sur les pannes de niveau 1 et 2 pour garantir la continuité de service.</li>
+                    <li>Supervision quotidienne des équipements réseaux.</li>
+                    <li>Maintenance préventive (switches, routeurs, Wi-Fi).</li>
+                    <li>Intervention sur les pannes de niveau 1 et 2.</li>
                 </ul>
             </div>
 
             <div class="card reveal-up delay-2">
                 <h3>⚙️ Administration Systèmes</h3>
                 <ul class="custom-list">
-                    <li>Gestion et maintenance des serveurs sous Windows Server.</li>
-                    <li>Administration des comptes et droits via Active Directory.</li>
-                    <li>Surveillance des sauvegardes et maintien de la sécurité informatique.</li>
+                    <li>Gestion et maintenance des serveurs Windows Server.</li>
+                    <li>Administration des comptes via Active Directory.</li>
+                    <li>Surveillance des sauvegardes et de la sécurité.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="technologies" style="min-height: auto; padding-top: 50px; padding-bottom: 100px;">
+    <section id="technologies" style="min-height: auto; padding-top: 20px;">
         <h2 class="section-title reveal-up">Environnement <span>Technique</span></h2>
         <div class="tech-stack reveal-up delay-1">
             <span>Windows 10 / 11</span>
@@ -148,12 +155,52 @@
         </div>
     </section>
 
+    <section id="documents" style="min-height: auto; padding-top: 80px; padding-bottom: 100px;">
+        <h2 class="section-title reveal-up">Dossiers & <span>Livrables</span></h2>
+        
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+            
+            <a href="document_entreprise/ton-rapport.pdf" target="_blank" class="doc-card reveal-up">
+                <div class="doc-info">
+                    <div class="doc-icon">📄</div>
+                    <div class="doc-details">
+                        <h4>Bilan d'Alternance (PDF)</h4>
+                        <p>Rapport détaillé de mes missions et compétences.</p>
+                    </div>
+                </div>
+                <div class="doc-btn">Ouvrir</div>
+            </a>
+
+            <a href="document_entreprise/doc-technique.pdf" target="_blank" class="doc-card reveal-up delay-1">
+                <div class="doc-info">
+                    <div class="doc-icon">🛠️</div>
+                    <div class="doc-details">
+                        <h4>Documentation Technique</h4>
+                        <p>Procédures créées pour l'administration système.</p>
+                    </div>
+                </div>
+                <div class="doc-btn">Ouvrir</div>
+            </a>
+
+            <a href="document_entreprise/schema-reseau.png" target="_blank" class="doc-card reveal-up delay-2">
+                <div class="doc-info">
+                    <div class="doc-icon">📊</div>
+                    <div class="doc-details">
+                        <h4>Schéma Réseau</h4>
+                        <p>Topologie de l'infrastructure de l'entreprise.</p>
+                    </div>
+                </div>
+                <div class="doc-btn">Ouvrir</div>
+            </a>
+
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2026 - Louann Lemaire-Coudray | BTS SIO SISR</p>
     </footer>
 
     <script>
-        /* ANIMATIONS DE FOND (Particules) */
         tsParticles.load("tsparticles", {
             particles: {
                 number: { value: 30, density: { enable: true, value_area: 800 } },
@@ -172,7 +219,6 @@
             retina_detect: true
         });
 
-        /* APPARITION AU SCROLL */
         const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
         sr.reveal('.reveal-up', { origin: 'bottom' });
         sr.reveal('.delay-1', { delay: 200 });
