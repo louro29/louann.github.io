@@ -41,8 +41,8 @@
         .section-title span { color: var(--primary-color); }
         .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-        /* GRILLES DE CARTES */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        /* GRILLES DE CARTES (Fonctionnalités) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 30px; }
         .card { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease; }
         .card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
         .card h3 { color: var(--text-color); margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
@@ -55,6 +55,20 @@
         .tool-header { margin-top: 40px; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .tool-header h2 { font-size: 2rem; color: var(--text-color); display: flex; align-items: center; gap: 15px; }
         .tool-header h2 span { color: var(--primary-color); font-size: 1.2rem; font-weight: 400; }
+
+        /* NOUVEAU : STYLE DES DOCUMENTS JOINTS */
+        .docs-container { margin-bottom: 60px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 10px; border: 1px dashed rgba(255,255,255,0.1); }
+        .docs-container h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--text-color); }
+        .docs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        
+        .doc-card { display: flex; align-items: center; justify-content: space-between; background: var(--surface-color); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; text-decoration: none; color: var(--text-color); }
+        .doc-card:hover { border-color: var(--primary-color); background: rgba(0, 255, 204, 0.05); transform: translateY(-3px); }
+        .doc-info { display: flex; align-items: center; gap: 15px; }
+        .doc-icon { font-size: 1.5rem; }
+        .doc-details h4 { font-size: 0.95rem; margin-bottom: 3px; }
+        .doc-details p { font-size: 0.8rem; color: var(--text-muted); }
+        .doc-btn { padding: 5px 10px; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 4px; font-size: 0.8rem; transition: 0.3s; }
+        .doc-card:hover .doc-btn { background: var(--primary-color); color: var(--bg-color); }
 
         footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
     </style>
@@ -80,18 +94,36 @@
         <div class="grid">
             <div class="card reveal-up">
                 <h3>Protection Multicouche</h3>
-                <p>Solution cloud offrant une défense proactive contre les malwares, le phishing, le spam et les arnaques ciblées (spear phishing).</p>
+                <p>Solution cloud offrant une défense proactive contre les malwares, le phishing, le spam et les arnaques ciblées.</p>
                 <div class="tech-stack"><span>Anti-Phishing</span><span>Anti-Spam</span></div>
             </div>
             <div class="card reveal-up delay-1">
                 <h3>Classification & IA</h3>
-                <p>Catégorisation intelligente des menaces et utilisation de l'intelligence artificielle pour identifier les failles zero-day et s'adapter aux nouvelles attaques.</p>
+                <p>Catégorisation intelligente des menaces et utilisation de l'IA pour identifier les failles zero-day.</p>
                 <div class="tech-stack"><span>Machine Learning</span><span>Zero-Day</span></div>
             </div>
             <div class="card reveal-up delay-2">
                 <h3>Surveillance & Rapports</h3>
-                <p>Tableau de bord en temps réel affichant les pourcentages de trafic malveillant et historique détaillé pour faciliter l'analyse forensique.</p>
+                <p>Tableau de bord en temps réel affichant les pourcentages de trafic malveillant et historique détaillé.</p>
                 <div class="tech-stack"><span>Logs</span><span>Reporting</span></div>
+            </div>
+        </div>
+        
+        <div class="docs-container reveal-up">
+            <h3>📸 Captures & Preuves</h3>
+            <div class="docs-grid">
+                <a href="document_entreprise/hornet-ancien.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Ancienne Interface</h4><p>Avant la mise à jour.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/hornet-interface.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖥️</div><div class="doc-details"><h4>Nouvelle Interface</h4><p>Tableau de bord actuel.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/hornet-phishing.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🎣</div><div class="doc-details"><h4>Exemple Phishing</h4><p>Menace détectée et bloquée.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/hornet-stats.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">📊</div><div class="doc-details"><h4>Statistiques</h4><p>Graphique des menaces.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
             </div>
         </div>
 
@@ -101,18 +133,30 @@
         <div class="grid">
             <div class="card reveal-up">
                 <h3>Gestion des Endpoints</h3>
-                <p>Surveillance centralisée de l'ensemble du parc informatique avec des indicateurs d'état en temps réel pour chaque terminal connecté ou déconnecté.</p>
+                <p>Surveillance centralisée du parc informatique avec des indicateurs d'état en temps réel pour chaque terminal.</p>
                 <div class="tech-stack"><span>Windows</span><span>macOS</span><span>Linux</span></div>
             </div>
             <div class="card reveal-up delay-1">
                 <h3>Ticketing Automatisé</h3>
-                <p>Génération automatique d'incidents (ex: SOC-xxxx) lors de la détection d'activités suspectes, avec une assignation claire pour les équipes de sécurité.</p>
+                <p>Génération automatique d'incidents (ex: SOC-xxxx) lors de la détection d'activités suspectes.</p>
                 <div class="tech-stack"><span>SOC</span><span>Automatisation</span></div>
             </div>
             <div class="card reveal-up delay-2">
                 <h3>Workflow d'Incident</h3>
-                <p>Priorisation intelligente selon la criticité des alertes et suivi structuré de la réponse aux incidents (En cours, Résolu, Fermé).</p>
+                <p>Priorisation selon la criticité des alertes et suivi structuré de la réponse aux incidents.</p>
                 <div class="tech-stack"><span>Remédiation</span><span>Traçabilité</span></div>
+            </div>
+        </div>
+
+        <div class="docs-container reveal-up">
+            <h3>📸 Captures & Preuves</h3>
+            <div class="docs-grid">
+                <a href="document_entreprise/cortex-1.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Aperçu Endpoints</h4><p>Surveillance des machines.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/cortex-2.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🚨</div><div class="doc-details"><h4>Gestion Incidents</h4><p>Vue sur les alertes SOC.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
             </div>
         </div>
 
@@ -122,20 +166,36 @@
         <div class="grid">
             <div class="card reveal-up">
                 <h3>Inventaire des Actifs</h3>
-                <p>Découverte et profilage complet des équipements par site (IP, OS, services détectés, géolocalisation) pour évaluer la surface d'attaque.</p>
+                <p>Découverte et profilage complet des équipements par site pour évaluer la surface d'attaque.</p>
                 <div class="tech-stack"><span>Monitoring</span><span>Cartographie</span></div>
             </div>
             <div class="card reveal-up delay-1">
                 <h3>Analyse des Vulnérabilités</h3>
-                <p>Identification exhaustive des failles de sécurité, classées par date de découverte et avec des liens directs vers les correctifs nécessaires.</p>
+                <p>Identification exhaustive des failles de sécurité, classées par date de découverte.</p>
                 <div class="tech-stack"><span>Scan Réseau</span><span>Patch Management</span></div>
             </div>
             <div class="card reveal-up delay-2">
                 <h3>Scoring et Risques</h3>
-                <p>Calcul automatisé du niveau de risque global des équipements en s'appuyant sur les scores standardisés CVSS pour optimiser les efforts de correction.</p>
+                <p>Calcul automatisé du niveau de risque global des équipements avec les scores CVSS.</p>
                 <div class="tech-stack"><span>Score CVSS</span><span>Analyse de Risque</span></div>
             </div>
         </div>
+
+        <div class="docs-container reveal-up">
+            <h3>📸 Captures & Preuves</h3>
+            <div class="docs-grid">
+                <a href="document_entreprise/rapid7-1.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🖼️</div><div class="doc-details"><h4>Tableau de bord</h4><p>Vue d'ensemble des actifs.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/rapid7-2.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">🔎</div><div class="doc-details"><h4>Scan de Vulnérabilité</h4><p>Liste des failles détectées.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+                <a href="document_entreprise/rapid7-3.png" target="_blank" class="doc-card">
+                    <div class="doc-info"><div class="doc-icon">📈</div><div class="doc-details"><h4>Scoring CVSS</h4><p>Analyse de criticité.</p></div></div><div class="doc-btn">Voir</div>
+                </a>
+            </div>
+        </div>
+
     </section>
 
     <footer>
