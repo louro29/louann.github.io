@@ -128,13 +128,13 @@
     <script>
         /* ==============================================================
            🚀 GESTION AUTOMATIQUE DES ARTICLES (PREVISUALISATION)
-           Ajoute simplement les liens de tes articles dans la liste ci-dessous !
+           Voici tes nouveaux liens Fortinet, IBM et ANSSI intégrés !
            ============================================================== */
         
         const mesLiensArticles = [
-            "https://www.ssi.gouv.fr/actualite/intelligence-artificielle-et-cybersecurite-les-recommandations-de-lanssi/",
-            "https://www.lemagit.fr/actualites/366555186/Securite-comment-lIA-generative-change-la-donne",
-            "https://cybermalveillance.gouv.fr/tous-nos-contenus/actualites/ia-generative-et-cybersecurite"
+            "https://www.fortinet.com/fr/resources/cyberglossary/artificial-intelligence-in-cybersecurity",
+            "https://www.ibm.com/fr-fr/think/insights/ai-hallucinations-pose-risk-cybersecurity",
+            "https://www.ssi.gouv.fr/actualite/intelligence-artificielle-et-cybersecurite-les-recommandations-de-lanssi/"
         ];
 
         async function chargerArticles() {
@@ -151,7 +151,8 @@
                     if (data.status === 'success') {
                         const info = data.data;
                         const imageUrl = info.image ? info.image.url : 'https://via.placeholder.com/600x300/111111/00ffcc?text=Article+Cyber';
-                        const publisher = info.publisher || 'Article Web';
+                        // On récupère le nom du site (Fortinet, IBM, etc.)
+                        const publisher = info.publisher || 'Article Expert';
                         const title = info.title || 'Titre indisponible';
                         const description = info.description ? info.description : 'Cliquez pour lire l\'article complet sur le site source.';
 
@@ -174,10 +175,10 @@
             }
 
             // Affichage des articles
-            loader.style.display = 'none';
-            container.innerHTML = htmlContent;
+            if(loader) loader.style.display = 'none';
+            if(container) container.innerHTML = htmlContent;
             
-            // Relancer l'animation ScrollReveal pour les nouveaux éléments
+            // Relancer l'animation ScrollReveal pour les nouveaux éléments générés
             if (typeof ScrollReveal !== 'undefined') {
                 ScrollReveal().reveal('.reveal-up', { origin: 'bottom', distance: '50px', duration: 1000 });
             }
