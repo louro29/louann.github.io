@@ -40,11 +40,13 @@
         .section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
         .section-title span { color: var(--primary-color); }
 
-        /* HERO SECTION (SANS PHOTO) */
+        /* HERO SECTION */
         .hero-container { display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 50px; width: 100%; }
         .hero-text { max-width: 800px; }
         .hero-text h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2; }
-        .hero-text h2 { font-size: 1.8rem; color: var(--text-muted); margin-bottom: 20px; }
+        
+        /* Ajout d'un min-height pour stabiliser l'animation du texte */
+        .hero-text h2 { font-size: 1.8rem; color: var(--text-muted); margin-bottom: 20px; min-height: 40px; }
         .typed-cursor { color: var(--primary-color); font-size: 2rem; }
         
         .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
@@ -349,7 +351,7 @@
                 new Typed('#typed-text', {
                     strings: [
                         'Étudiant en BTS SIO SISR.', 
-                        'Technicien Réseaux & Systèmes.',
+                        'Technicien Réseaux et Systèmes.',
                         'Passionné par l\'IA et la Cybersécurité.'
                     ],
                     typeSpeed: 50, backSpeed: 30, backDelay: 2000, loop: true
