@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Louann Lemaire-Coudray</title>
     
+    <!-- Scripts externes chargés en sécurité -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
@@ -116,12 +117,13 @@
         <div class="nav-links">
             <a href="#accueil">Accueil</a>
             <a href="#parcours">Profil & Parcours</a>
-            <a href="#projets">Projets</a>
+            <a href="#realisations">Réalisations</a>
             <a href="veille.html">Veille</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
+    <!-- ACCUEIL (HERO SECTION) -->
     <section id="accueil">
         <div class="hero-container">
             <div class="hero-text">
@@ -139,10 +141,12 @@
         </div>
     </section>
 
+    <!-- SECTION : PARCOURS & COMPÉTENCES -->
     <section id="parcours">
         <h2 class="section-title reveal-up">Mon <span>Parcours</span> & Compétences</h2>
         
         <div class="cv-grid">
+            <!-- COLONNE EXPERIENCES -->
             <div class="cv-column reveal-up">
                 <h3>💼 Expériences Professionnelles</h3>
                 <div class="timeline">
@@ -185,6 +189,7 @@
                 </div>
             </div>
 
+            <!-- COLONNE FORMATIONS -->
             <div class="cv-column reveal-up delay-1">
                 <h3>🎓 Formations & Diplômes</h3>
                 <div class="timeline">
@@ -209,9 +214,11 @@
             </div>
         </div>
 
+        <!-- SECTION : EXPERTISE MÉTIER -->
         <h3 class="reveal-up delay-1" style="color: var(--text-color); margin-bottom: 25px; font-size: 1.5rem; text-align: center;">⚡ Domaines d'Expertise</h3>
         
         <div class="expertise-grid reveal-up delay-2">
+            <!-- Box 1 -->
             <div class="expertise-card">
                 <h4>💻 Administration Systèmes</h4>
                 <p>Gestion des environnements serveurs, administration des comptes utilisateurs, gestion des droits et déploiement de stratégies de groupe (GPO).</p>
@@ -222,6 +229,7 @@
                 </div>
             </div>
 
+            <!-- Box 2 -->
             <div class="expertise-card">
                 <h4>🌐 Infrastructure Réseau</h4>
                 <p>Configuration et maintien en conditions opérationnelles des équipements réseaux. Déploiement de réseaux locaux et gestion du Wi-Fi.</p>
@@ -232,6 +240,7 @@
                 </div>
             </div>
 
+            <!-- Box 3 -->
             <div class="expertise-card">
                 <h4>🛡️ Sécurité & Sauvegarde</h4>
                 <p>Supervision des menaces, sécurisation des endpoints et des emails. Mise en place de plans de sauvegarde (PRA) et restauration granulaire.</p>
@@ -242,6 +251,7 @@
                 </div>
             </div>
 
+            <!-- Box 4 -->
             <div class="expertise-card">
                 <h4>📞 Support & IT Service Management</h4>
                 <p>Prise en charge des incidents utilisateurs (N1/N2), prise en main à distance, gestion de parc informatique et suivi des tickets.</p>
@@ -255,16 +265,24 @@
 
     </section>
 
-    <section id="projets">
-        <h2 class="section-title reveal-up">Mes <span>Projets</span></h2>
-        <div class="grid">
-            
+    <!-- SECTION : RÉALISATIONS -->
+    <section id="realisations">
+        <h2 class="section-title reveal-up">Mes <span>Réalisations</span></h2>
+        
+        <!-- Bilan d'Alternance -->
+        <div class="grid" style="margin-bottom: 50px;">
             <div class="card card-highlight reveal-up">
                 <h3>💼 Bilan d'Alternance (Entreprise)</h3>
                 <p>Découvrez en détail l'ensemble de mes missions techniques, mes procédures et les outils professionnels utilisés lors de mon apprentissage chez Griffine Industrie.</p>
                 <a href="entreprise.html" class="btn" style="width: 100%; text-align: center;">Explorer les missions Entreprise</a>
             </div>
+        </div>
 
+        <!-- Projets E6 -->
+        <h3 class="reveal-up" style="color: var(--text-color); margin-bottom: 30px; font-size: 1.5rem; text-align: center;">🎓 Projets Épreuve E6</h3>
+        <div class="grid">
+            
+            <!-- Carte Projet Monitoring -->
             <div class="card reveal-up delay-1">
                 <h3>📊 Supervision d'Infrastructure</h3>
                 <p>Projet scolaire complet : mise en place d'une solution de monitoring avec Grafana et Prometheus pour superviser une architecture réseau de A à Z.</p>
@@ -276,9 +294,22 @@
                 <a href="#" class="btn btn-outline" style="width: 100%; text-align: center;">Voir le projet</a>
             </div>
 
+            <!-- Carte Projet GLPI -->
+            <div class="card reveal-up delay-2">
+                <h3>🎫 Gestion de Parc & Ticketing</h3>
+                <p>Déploiement et configuration d'un serveur GLPI. Mise en place du Helpdesk, gestion des incidents et inventaire automatisé du parc informatique.</p>
+                <div class="tech-tags" style="margin-bottom: 20px;">
+                    <span>GLPI</span>
+                    <span>Ticketing</span>
+                    <span>ITIL</span>
+                </div>
+                <a href="#" class="btn btn-outline" style="width: 100%; text-align: center;">Voir le projet</a>
+            </div>
+
         </div>
     </section>
 
+    <!-- SECTION CONTACT -->
     <section id="contact" style="min-height: 60vh;">
         <h2 class="section-title reveal-up">Me <span>Contacter</span></h2>
         
@@ -312,6 +343,7 @@
         <p>&copy; 2026 - Louann Lemaire-Coudray | Portfolio BTS SIO SISR<span id="secret-dot">.</span></p>
     </footer>
 
+    <!-- INTERFACE DU MINI-JEU -->
     <div id="game-overlay">
         <h2 style="color: var(--primary-color); margin-bottom: 10px;">🚨 Alerte Bug 🚨</h2>
         <p style="margin-bottom: 20px; color: var(--text-muted);">Attrape le bug 5 fois pour sécuriser le réseau !</p>
