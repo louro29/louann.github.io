@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets E6 | Louann Lemaire-Coudray</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #111111;
+            --primary-color: #00ffcc; 
+            --text-color: #f0f0f0;
+            --text-muted: #888888;
+            --warning-color: #ff9900; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+
+        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex;
+            justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-color); }
+        .logo span { color: var(--primary-color); }
+
+        .nav-links a { color: var(--text-color); text-decoration: none; margin-left: 30px; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        .header-section { padding: 150px 10% 50px; text-align: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 20px; }
+        .section-title span { color: var(--primary-color); }
+        .section-subtitle { color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; }
+
+        /* STRUCTURE DES PROJETS */
+        .project-container { padding: 50px 10%; margin-bottom: 50px; }
+        .project-card { background: var(--surface-color); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+        .project-card:hover { border-color: rgba(0, 255, 204, 0.2); box-shadow: 0 0 30px rgba(0, 255, 204, 0.02); }
+        
+        .project-info { flex: 1; min-width: 300px; }
+        .project-title { font-size: 2rem; color: var(--text-color); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .project-desc { color: var(--text-muted); line-height: 1.6; margin-bottom: 25px; }
+        
+        .project-tasks { list-style-type: none; margin-bottom: 25px; }
+        .project-tasks li { position: relative; padding-left: 20px; margin-bottom: 10px; color: var(--text-color); font-size: 0.95rem; }
+        .project-tasks li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
+
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .tech-tags span { background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+
+        /* ZONE D'IMAGE / SCREENSHOTS EN COURS DE CREATION */
+        .project-gallery { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
+        
+        .img-placeholder { 
+            width: 100%; 
+            height: 250px; 
+            background: rgba(255, 153, 0, 0.05); 
+            border: 1px dashed var(--warning-color); 
+            border-radius: 10px; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            color: var(--warning-color); 
+            text-align: center; 
+            padding: 20px; 
+            overflow: hidden; 
+        }
+        
+        .img-placeholder .icon { font-size: 2rem; margin-bottom: 10px; }
+        .img-placeholder .text { font-size: 1rem; font-weight: bold; margin-bottom: 5px; }
+        .img-placeholder .subtext { font-size: 0.85rem; color: var(--text-muted); }
+
+        .img-placeholder img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.3s; display: none; }
+        .img-placeholder.has-image { background: #000; border: 1px solid rgba(255,255,255,0.1); padding: 0; }
+        .img-placeholder.has-image img { display: block; }
+        .img-placeholder.has-image > div { display: none; } 
+        .img-placeholder.has-image:hover img { opacity: 1; transform: scale(1.02); }
+
+        footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <div id="tsparticles"></div>
+
+    <nav>
+        <div class="logo">Louann<span>.lemaire-coudray</span></div>
+        <div class="nav-links">
+            <a href="index.html">← Retour à l'accueil</a>
+        </div>
+    </nav>
+
+    <header class="header-section reveal-up">
+        <h1 class="section-title">Mes Projets <span>Épreuve E6</span></h1>
+        <p class="section-subtitle">
+            Découvrez en détail les environnements techniques que j'ai déployés et administrés. Ces projets démontrent mes compétences en infrastructure, supervision et gestion de parc informatique.
+        </p>
+    </header>
+
+    <!-- PROJET 1 : SUPERVISION (MONITORING) -->
+    <section id="monitoring" class="project-container">
+        <div class="project-card reveal-up delay-1">
+            <div class="project-info">
+                <h2 class="project-title">📊 Supervision d'Infrastructure</h2>
+                <div class="tech-tags">
+                    <span>Linux Debian</span>
+                    <span>Prometheus</span>
+                    <span>Grafana</span>
+                </div>
+                <p class="project-desc">
+                    L'objectif de ce projet était de mettre en place une solution de monitoring proactive pour surveiller l'état de santé du réseau et des serveurs afin d'anticiper les pannes et optimiser les performances.
+                </p>
+                <ul class="project-tasks">
+                    <li>Installation et configuration d'un serveur sous Linux.</li>
+                    <li>Déploiement de <strong>Prometheus</strong> pour la collecte des métriques (CPU, RAM, Disques, Trafic réseau).</li>
+                    <li>Mise en place d'agents (Node Exporter) sur les machines cibles.</li>
+                    <li>Création de tableaux de bord personnalisés avec <strong>Grafana</strong>.</li>
+                    <li>Configuration d'alertes en cas de dépassement de seuils critiques.</li>
+                </ul>
+            </div>
+            
+            <div class="project-gallery">
+                <div class="img-placeholder">
+                    <div class="icon">🚧</div>
+                    <div class="text">Ressources en cours de création</div>
+                    <div class="subtext">Capture d'écran du Dashboard Grafana à venir</div>
+                </div>
+                <div class="img-placeholder" style="height: 150px;">
+                    <div class="icon">🚧</div>
+                    <div class="text">Ressources en cours de création</div>
+                    <div class="subtext">Capture de la configuration Prometheus à venir</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJET 2 : GLPI -->
+    <section id="glpi" class="project-container">
+        <div class="project-card reveal-up delay-2">
+            <!-- Inversion de l'ordre visuel (image à gauche, texte à droite) -->
+            <div class="project-gallery">
+                <div class="img-placeholder">
+                    <div class="icon">🚧</div>
+                    <div class="text">Ressources en cours de création</div>
+                    <div class="subtext">Capture de Windows Server / Active Directory à venir</div>
+                </div>
+                <div class="img-placeholder" style="height: 150px;">
+                    <div class="icon">🚧</div>
+                    <div class="text">Ressources en cours de création</div>
+                    <div class="subtext">Capture d'écran du Helpdesk GLPI à venir</div>
+                </div>
+            </div>
+
+            <div class="project-info">
+                <h2 class="project-title">🎫 Gestion de Parc & Ticketing (GLPI)</h2>
+                <div class="tech-tags">
+                    <span>GLPI</span>
+                    <span>Windows Server 2019</span>
+                    <span>Active Directory (LDAP)</span>
+                </div>
+                <p class="project-desc">
+                    Déploiement d'une solution centralisée de gestion de parc informatique (ITSM) couplée à un environnement Microsoft. Ce projet vise à améliorer le support utilisateur, centraliser les identités et cartographier l'infrastructure.
+                </p>
+                <ul class="project-tasks">
+                    <li>Création et administration d'un domaine <strong>Active Directory</strong> sur Windows Server 2019.</li>
+                    <li>Installation d'un environnement web pour héberger la solution GLPI.</li>
+                    <li><strong>Interconnexion LDAP</strong> entre l'AD et GLPI pour l'authentification centralisée des utilisateurs.</li>
+                    <li>Mise en place d'un système d'inventaire automatisé pour remonter les équipements du domaine.</li>
+                    <li>Configuration des règles de Helpdesk et gestion des profils techniques.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - Louann Lemaire-Coudray | Portfolio BTS SIO SISR</p>
+    </footer>
+
+    <script>
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 30, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ffcc" },
+                shape: { type: "circle" },
+                opacity: { value: 0.2, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ffcc", opacity: 0.1, width: 1 },
+                move: { enable: true, speed: 0.8, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "grab" }, resize: true },
+                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } } }
+            },
+            retina_detect: true
+        });
+
+        const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
+        sr.reveal('.reveal-up', { origin: 'bottom' });
+        sr.reveal('.delay-1', { delay: 200 });
+        sr.reveal('.delay-2', { delay: 400 });
+    </script>
+</body>
+</html>
