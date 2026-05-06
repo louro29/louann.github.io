@@ -104,8 +104,6 @@
         <!-- MES OUTILS DE VEILLE -->
         <h2 class="reveal-up" style="font-size: 1.5rem; margin-bottom: 25px; color: var(--text-color);">🛠️ Ma méthodologie & Mes outils</h2>
         <div class="tools-grid reveal-up delay-1">
-            <!-- La case Feedly a été retirée ici -->
-            
             <div class="tool-card">
                 <div class="tool-icon">🔔</div>
                 <h4>Google Alerts</h4>
@@ -121,7 +119,6 @@
         <!-- FIL D'ACTUALITÉ GÉNÉRÉ AUTOMATIQUEMENT -->
         <h2 class="reveal-up" style="font-size: 1.5rem; margin-bottom: 25px; margin-top: 20px; color: var(--text-color);">📰 Les articles que j'ai étudiés</h2>
         
-        <!-- C'est ici que les articles vont s'afficher ! -->
         <div id="articles-container" class="articles-grid">
             <div class="loader-container" id="loading">
                 <div class="loader"></div>
@@ -138,13 +135,21 @@
     <script>
         /* ==============================================================
            🚀 GESTION AUTOMATIQUE DES ARTICLES (PREVISUALISATION)
-           Voici tes nouveaux liens Fortinet, IBM et ANSSI intégrés !
            ============================================================== */
         
         const mesLiensArticles = [
             "https://www.fortinet.com/fr/resources/cyberglossary/artificial-intelligence-in-cybersecurity",
             "https://www.ibm.com/fr-fr/think/insights/ai-hallucinations-pose-risk-cybersecurity",
-            "https://www.ssi.gouv.fr/actualite/intelligence-artificielle-et-cybersecurite-les-recommandations-de-lanssi/"
+            "https://www.ssi.gouv.fr/actualite/intelligence-artificielle-et-cybersecurite-les-recommandations-de-lanssi/",
+            "https://www.it-connect.fr/en-9-secondes-cet-agent-ia-a-detruit-la-base-de-prod-de-pocketos/",
+            "https://www.it-connect.fr/pack2theroot-cette-vulnerabilite-vieille-de-12-ans-menace-linux/",
+            "https://www.it-connect.fr/anthropic-teste-la-suppression-de-claude-code-de-labonnement-pro-a-20-dollars/",
+            "https://www.it-connect.fr/claude-design-le-nouvel-ia-pour-creer-des-visuels-et-des-prototypes/",
+            "https://www.it-connect.fr/ia-plus-autonome-plus-precis-voici-claude-opus-4-7/",
+            "https://www.it-connect.fr/cybersecurite-openai-fait-sauter-les-garde-fous-de-ia-pour-gpt-5-4-cyber/",
+            "https://www.it-connect.fr/gta-6-rockstar-games-confirme-le-vol-de-donnees-par-shinyhunters/",
+            "https://www.it-connect.fr/piratage-basic-fit-les-donnees-bancaires-dun-million-de-membres-volees/",
+            "https://www.it-connect.fr/securite-de-etat-lanssi-devoile-sa-feuille-de-route-pour-2026-2027/"
         ];
 
         async function chargerArticles() {
@@ -161,7 +166,6 @@
                     if (data.status === 'success') {
                         const info = data.data;
                         const imageUrl = info.image ? info.image.url : 'https://via.placeholder.com/600x300/111111/00ffcc?text=Article+Cyber';
-                        // On récupère le nom du site (Fortinet, IBM, etc.)
                         const publisher = info.publisher || 'Article Expert';
                         const title = info.title || 'Titre indisponible';
                         const description = info.description ? info.description : 'Cliquez pour lire l\'article complet sur le site source.';
