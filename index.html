@@ -79,13 +79,17 @@
         .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tech-tags span { background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); padding: 4px 10px; border-radius: 15px; font-size: 0.75rem; }
 
+        /* SECTION ENTREPRISE */
+        .entreprise-card { background: var(--surface-color); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; max-width: 950px; margin: 0 auto; transition: 0.3s; }
+        .entreprise-card:hover { border-color: rgba(0, 255, 204, 0.3); box-shadow: 0 0 20px rgba(0, 255, 204, 0.05); }
+        .entreprise-logo-box { flex: 1; min-width: 250px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(0, 255, 204, 0.3); border-radius: 10px; padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .entreprise-info { flex: 2; min-width: 300px; }
+
         /* GRILLES (PROJETS) */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease; }
         .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
-        
         .card-highlight { border: 1px solid rgba(0, 255, 204, 0.4); box-shadow: 0 0 20px rgba(0, 255, 204, 0.05); position: relative; overflow: hidden; }
-
         .card h3 { color: var(--text-color); margin-bottom: 10px; font-size: 1.5rem; }
         .card p { color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6; }
 
@@ -99,7 +103,7 @@
 
         footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
         
-        /* STYLE DU MINI-JEU STRICTEMENT INVISIBLE */
+        /* STYLE DU MINI-JEU */
         #game-overlay { display: none !important; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10,10,10,0.98); z-index: 99999; flex-direction: column; align-items: center; justify-content: center; }
         #game-overlay.active { display: flex !important; }
         #game-area { position: relative; width: 80%; max-width: 800px; height: 60vh; border: 2px dashed var(--primary-color); border-radius: 10px; overflow: hidden; background: #000; }
@@ -117,6 +121,7 @@
         <div class="nav-links">
             <a href="#accueil">Accueil</a>
             <a href="#parcours">Profil & Parcours</a>
+            <a href="#entreprise">Entreprise</a> <!-- NOUVEAU LIEN -->
             <a href="#realisations">Réalisations</a>
             <a href="veille.html">Veille</a>
             <a href="#contact">Contact</a>
@@ -262,7 +267,36 @@
                 </div>
             </div>
         </div>
+    </section>
 
+    <!-- SECTION : ENTREPRISE (NOUVELLE SECTION) -->
+    <section id="entreprise">
+        <h2 class="section-title reveal-up">Mon <span>Entreprise</span></h2>
+        
+        <div class="entreprise-card reveal-up delay-1">
+            <div class="entreprise-logo-box">
+                <!-- Espace pour insérer l'image du logo plus tard -->
+                <div style="font-size: 4rem; margin-bottom: 15px;">🏭</div>
+                <h3 style="color: var(--primary-color); font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 5px;">Griffine</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Industrie & Production</p>
+            </div>
+            
+            <div class="entreprise-info">
+                <h3 style="color: var(--text-color); font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Présentation de la structure</h3>
+                <ul class="task-list" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 25px;">
+                    <li><strong>Adresse :</strong> 182 Rue de Paris, Nucourt 95420</li>
+                    <li><strong>Secteur d'activité :</strong> Tissus enduits</li>
+                    <li><strong>Effectif :</strong> 200 employés</li>
+                </ul>
+                
+                <div style="background: rgba(0, 255, 204, 0.05); border-left: 3px solid var(--primary-color); padding: 15px 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: var(--text-color); font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">💻 Le Service Informatique</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        Je travaille au sein d'une équipe informatique à taille humaine, composée uniquement de deux personnes pour gérer l'ensemble de l'infrastructure : mon responsable, <strong>M. Di Zazzo</strong>, et <strong>moi-même</strong>. Cette configuration m'offre une très grande autonomie et une forte polyvalence face aux utilisateurs.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- SECTION : RÉALISATIONS -->
@@ -291,7 +325,6 @@
                     <span>Prometheus</span>
                     <span>Monitoring Linux</span>
                 </div>
-                <!-- LIEN MIS À JOUR VERS PROJETS.HTML#MONITORING -->
                 <a href="projets.html#monitoring" class="btn btn-outline" style="width: 100%; text-align: center;">Voir le projet</a>
             </div>
 
@@ -304,7 +337,6 @@
                     <span>Ticketing</span>
                     <span>ITIL</span>
                 </div>
-                <!-- LIEN MIS À JOUR VERS PROJETS.HTML#GLPI -->
                 <a href="projets.html#glpi" class="btn btn-outline" style="width: 100%; text-align: center;">Voir le projet</a>
             </div>
 
@@ -355,7 +387,6 @@
     </div>
 
     <script>
-        // Utilisation de DOMContentLoaded pour garantir que le HTML est chargé avant d'exécuter les scripts
         document.addEventListener('DOMContentLoaded', () => {
             
             /* ANIMATIONS DE FOND */
