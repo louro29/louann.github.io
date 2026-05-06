@@ -57,7 +57,8 @@
         .article-card { background: var(--surface-color); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); overflow: hidden; transition: transform 0.3s ease; display: flex; flex-direction: column; text-decoration: none; }
         .article-card:hover { transform: translateY(-5px); border-color: var(--primary-color); box-shadow: 0 0 15px rgba(0, 255, 204, 0.1); }
         
-        .article-image { width: 100%; height: 180px; background-color: #222; background-size: cover; background-position: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .article-image { width: 100%; height: 180px; background-color: #222; background-size: cover; background-position: center; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; }
+        .article-image span { color: rgba(255,255,255,0.2); font-size: 3rem; font-weight: bold; text-transform: uppercase; }
         .article-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
         
         .article-source { color: var(--primary-color); font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
@@ -66,11 +67,6 @@
         
         .btn-read { display: inline-block; padding: 8px 0; color: var(--primary-color); font-size: 0.9rem; font-weight: bold; transition: 0.3s; margin-top: auto; }
         .article-card:hover .btn-read { color: #fff; }
-
-        /* Loader animé */
-        .loader-container { text-align: center; width: 100%; padding: 40px; grid-column: 1 / -1; }
-        .loader { border: 4px solid rgba(255,255,255,0.1); border-left-color: var(--primary-color); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 15px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
     </style>
@@ -90,7 +86,6 @@
     <section id="veille">
         <h1 class="section-title reveal-up">Veille <span>Technologique</span></h1>
         
-        <!-- LE THÈME CLAIREMENT AFFICHÉ ICI -->
         <div style="text-align: center;">
             <div class="theme-badge reveal-up">
                 🎯 Thème : L'impact de l'Intelligence Artificielle dans la Cybersécurité
@@ -116,14 +111,11 @@
             </div>
         </div>
 
-        <!-- FIL D'ACTUALITÉ GÉNÉRÉ AUTOMATIQUEMENT -->
+        <!-- FIL D'ACTUALITÉ GÉNÉRÉ EN LOCAL (ANTI-BUG) -->
         <h2 class="reveal-up" style="font-size: 1.5rem; margin-bottom: 25px; margin-top: 20px; color: var(--text-color);">📰 Les articles que j'ai étudiés</h2>
         
         <div id="articles-container" class="articles-grid">
-            <div class="loader-container" id="loading">
-                <div class="loader"></div>
-                <p style="color: var(--text-muted);">Génération des prévisualisations en cours...</p>
-            </div>
+            <!-- Les articles s'afficheront ici instantanément -->
         </div>
 
     </section>
@@ -134,65 +126,123 @@
 
     <script>
         /* ==============================================================
-           🚀 GESTION AUTOMATIQUE DES ARTICLES (PREVISUALISATION)
+           🚀 GESTION LOCALE DES ARTICLES (Format JSON)
+           Affichage instantané à 100% de fiabilité pour l'examen.
            ============================================================== */
         
-        const mesLiensArticles = [
-            "https://www.fortinet.com/fr/resources/cyberglossary/artificial-intelligence-in-cybersecurity",
-            "https://www.ibm.com/fr-fr/think/insights/ai-hallucinations-pose-risk-cybersecurity",
-            "https://www.ssi.gouv.fr/actualite/intelligence-artificielle-et-cybersecurite-les-recommandations-de-lanssi/",
-            "https://www.it-connect.fr/en-9-secondes-cet-agent-ia-a-detruit-la-base-de-prod-de-pocketos/",
-            "https://www.it-connect.fr/pack2theroot-cette-vulnerabilite-vieille-de-12-ans-menace-linux/",
-            "https://www.it-connect.fr/anthropic-teste-la-suppression-de-claude-code-de-labonnement-pro-a-20-dollars/",
-            "https://www.it-connect.fr/claude-design-le-nouvel-ia-pour-creer-des-visuels-et-des-prototypes/",
-            "https://www.it-connect.fr/ia-plus-autonome-plus-precis-voici-claude-opus-4-7/",
-            "https://www.it-connect.fr/cybersecurite-openai-fait-sauter-les-garde-fous-de-ia-pour-gpt-5-4-cyber/",
-            "https://www.it-connect.fr/gta-6-rockstar-games-confirme-le-vol-de-donnees-par-shinyhunters/",
-            "https://www.it-connect.fr/piratage-basic-fit-les-donnees-bancaires-dun-million-de-membres-volees/",
-            "https://www.it-connect.fr/securite-de-etat-lanssi-devoile-sa-feuille-de-route-pour-2026-2027/"
+        const articlesData = [
+            {
+                source: "IT-Connect",
+                title: "En 9 secondes, cet agent IA a détruit la base de prod de PocketOS",
+                desc: "Un exemple alarmant des dangers de l'automatisation excessive et de l'octroi de privilèges élevés aux agents IA dans des environnements de production.",
+                url: "https://www.it-connect.fr/en-9-secondes-cet-agent-ia-a-detruit-la-base-de-prod-de-pocketos/",
+                imgText: "IA & Incident"
+            },
+            {
+                source: "IT-Connect",
+                title: "Cybersécurité : OpenAI fait sauter les garde-fous de l'IA pour GPT-5",
+                desc: "Les mesures de sécurité assouplies par OpenAI pourraient permettre aux acteurs malveillants d'exploiter les LLM pour créer des cyberattaques sophistiquées.",
+                url: "https://www.it-connect.fr/cybersecurite-openai-fait-sauter-les-garde-fous-de-ia-pour-gpt-5-4-cyber/",
+                imgText: "OpenAI Sec"
+            },
+            {
+                source: "Fortinet",
+                title: "Intelligence artificielle en cybersécurité",
+                desc: "Découvrez comment l'IA et le Machine Learning transforment les centres opérationnels de sécurité (SOC) pour détecter les menaces en temps réel.",
+                url: "https://www.fortinet.com/fr/resources/cyberglossary/artificial-intelligence-in-cybersecurity",
+                imgText: "Fortinet IA"
+            },
+            {
+                source: "IBM",
+                title: "Les hallucinations de l'IA posent un risque de cybersécurité",
+                desc: "Quand les modèles d'IA génèrent de fausses informations, cela crée de nouvelles vulnérabilités que les attaquants peuvent exploiter (Data Poisoning).",
+                url: "https://www.ibm.com/fr-fr/think/insights/ai-hallucinations-pose-risk-cybersecurity",
+                imgText: "IBM Security"
+            },
+            {
+                source: "ANSSI",
+                title: "IA et Cybersécurité : les recommandations de l'ANSSI",
+                desc: "L'Agence Nationale de la Sécurité des Systèmes d'Information publie son cadre de bonnes pratiques pour sécuriser l'utilisation de l'IA.",
+                url: "https://www.ssi.gouv.fr/actualite/intelligence-artificielle-et-cybersecurite-les-recommandations-de-lanssi/",
+                imgText: "ANSSI"
+            },
+            {
+                source: "IT-Connect",
+                title: "IA : plus autonome, plus précis, voici Claude Opus 4.7",
+                desc: "Les nouvelles avancées des modèles d'Anthropic montrent une capacité croissante d'analyse de code, utile pour la détection de vulnérabilités.",
+                url: "https://www.it-connect.fr/ia-plus-autonome-plus-precis-voici-claude-opus-4-7/",
+                imgText: "Claude IA"
+            },
+            {
+                source: "IT-Connect",
+                title: "Sécurité de l'Etat : l'ANSSI dévoile sa feuille de route 2026-2027",
+                desc: "Face à l'évolution des cybermenaces, notamment celles générées par l'IA, l'ANSSI adapte sa stratégie nationale de défense.",
+                url: "https://www.it-connect.fr/securite-de-etat-lanssi-devoile-sa-feuille-de-route-pour-2026-2027/",
+                imgText: "Stratégie Cyber"
+            },
+            {
+                source: "IT-Connect",
+                title: "Pack2TheRoot : cette vulnérabilité de 12 ans menace Linux",
+                desc: "Une faille de sécurité critique présente depuis plus d'une décennie dans le noyau Linux vient d'être révélée au grand jour.",
+                url: "https://www.it-connect.fr/pack2theroot-cette-vulnerabilite-vieille-de-12-ans-menace-linux/",
+                imgText: "Linux Faille"
+            },
+            {
+                source: "IT-Connect",
+                title: "Piratage Basic-Fit : les données bancaires volées",
+                desc: "Un million de membres touchés par une fuite massive de données personnelles et bancaires suite à une cyberattaque.",
+                url: "https://www.it-connect.fr/piratage-basic-fit-les-donnees-bancaires-dun-million-de-membres-volees/",
+                imgText: "Data Breach"
+            },
+            {
+                source: "IT-Connect",
+                title: "GTA 6 : Rockstar Games confirme le vol de données",
+                desc: "Le célèbre groupe de hackers ShinyHunters revendique une intrusion majeure dans les serveurs du studio de développement.",
+                url: "https://www.it-connect.fr/gta-6-rockstar-games-confirme-le-vol-de-donnees-par-shinyhunters/",
+                imgText: "Hack Rockstar"
+            },
+            {
+                source: "IT-Connect",
+                title: "Anthropic teste la suppression de Claude Code",
+                desc: "L'éditeur d'IA modifie son offre concernant son assistant de codage, soulevant des questions sur l'accès aux outils de sécurité IA.",
+                url: "https://www.it-connect.fr/anthropic-teste-la-suppression-de-claude-code-de-labonnement-pro-a-20-dollars/",
+                imgText: "Claude Code"
+            },
+            {
+                source: "IT-Connect",
+                title: "Claude Design : l'IA pour créer des visuels et prototypes",
+                desc: "Une nouvelle incursion de l'IA dans la conception d'interfaces, redéfinissant les méthodes de développement.",
+                url: "https://www.it-connect.fr/claude-design-le-nouvel-ia-pour-creer-des-visuels-et-des-prototypes/",
+                imgText: "UI Prototype"
+            }
         ];
 
-        async function chargerArticles() {
+        function chargerArticles() {
             const container = document.getElementById('articles-container');
-            const loader = document.getElementById('loading');
             let htmlContent = '';
 
-            for (let url of mesLiensArticles) {
-                try {
-                    // Appel à l'API gratuite Microlink pour récupérer les infos de l'URL
-                    const response = await fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`);
-                    const data = await response.json();
+            articlesData.forEach((art, index) => {
+                // Animation différée pour un effet d'apparition en cascade
+                const delayClass = index < 3 ? 'delay-1' : ''; 
+                
+                htmlContent += `
+                    <a href="${art.url}" target="_blank" class="article-card reveal-up ${delayClass}">
+                        <div class="article-image">
+                            <span>${art.imgText}</span>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-source">${art.source}</div>
+                            <div class="article-title">${art.title}</div>
+                            <div class="article-desc">${art.desc}</div>
+                            <div class="btn-read">Lire l'article →</div>
+                        </div>
+                    </a>
+                `;
+            });
 
-                    if (data.status === 'success') {
-                        const info = data.data;
-                        const imageUrl = info.image ? info.image.url : 'https://via.placeholder.com/600x300/111111/00ffcc?text=Article+Cyber';
-                        const publisher = info.publisher || 'Article Expert';
-                        const title = info.title || 'Titre indisponible';
-                        const description = info.description ? info.description : 'Cliquez pour lire l\'article complet sur le site source.';
-
-                        // Création de la carte HTML
-                        htmlContent += `
-                            <a href="${info.url}" target="_blank" class="article-card reveal-up">
-                                <div class="article-image" style="background-image: url('${imageUrl}');"></div>
-                                <div class="article-content">
-                                    <div class="article-source">${publisher}</div>
-                                    <div class="article-title">${title}</div>
-                                    <div class="article-desc">${description}</div>
-                                    <div class="btn-read">Lire l'article complet →</div>
-                                </div>
-                            </a>
-                        `;
-                    }
-                } catch (error) {
-                    console.error("Erreur de chargement pour l'URL :", url);
-                }
-            }
-
-            // Affichage des articles
-            if(loader) loader.style.display = 'none';
-            if(container) container.innerHTML = htmlContent;
+            container.innerHTML = htmlContent;
             
-            // Relancer l'animation ScrollReveal pour les nouveaux éléments générés
+            // Initialisation des animations au scroll
             if (typeof ScrollReveal !== 'undefined') {
                 ScrollReveal().reveal('.reveal-up', { origin: 'bottom', distance: '50px', duration: 1000 });
             }
@@ -221,11 +271,6 @@
                     },
                     retina_detect: true
                 });
-            }
-
-            if (typeof ScrollReveal !== 'undefined') {
-                ScrollReveal().reveal('.reveal-up', { origin: 'bottom', distance: '50px', duration: 1000 });
-                ScrollReveal().reveal('.delay-1', { delay: 200 });
             }
         });
     </script>
