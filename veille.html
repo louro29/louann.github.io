@@ -63,12 +63,12 @@
         .article-card:hover { transform: translateY(-5px); border-color: var(--primary-color); box-shadow: 0 0 15px rgba(0, 255, 204, 0.1); }
         
         .article-image { width: 100%; height: 180px; background-color: #222; background-size: cover; background-position: center; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; }
-        .article-image span { color: rgba(255,255,255,0.2); font-size: 3rem; font-weight: bold; text-transform: uppercase; }
+        .article-image span { color: rgba(255,255,255,0.2); font-size: 3rem; font-weight: bold; text-transform: uppercase; text-align: center; padding: 10px; line-height: 1.1; }
         .article-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
         
         .article-source { color: var(--primary-color); font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
         .article-title { color: var(--text-color); font-size: 1.1rem; margin-bottom: 15px; line-height: 1.4; }
-        .article-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; flex-grow: 1; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .article-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; flex-grow: 1; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
         
         .btn-read { display: inline-block; padding: 8px 0; color: var(--primary-color); font-size: 0.9rem; font-weight: bold; transition: 0.3s; margin-top: auto; }
         .article-card:hover .btn-read { color: #fff; }
@@ -101,18 +101,15 @@
             L'IA est devenue une arme à double tranchant : elle permet aux attaquants de générer des malwares et des campagnes de phishing ultra-sophistiqués, mais elle est aussi au cœur des nouvelles solutions de défense (SOC, EDR) pour détecter les comportements anormaux en temps réel.
         </p>
 
-        <!-- MES OUTILS DE VEILLE -->
         <h2 class="reveal-up" style="font-size: 1.5rem; margin-bottom: 25px; color: var(--text-color);">🛠️ Ma méthodologie & Mes outils</h2>
         <div class="tools-grid reveal-up delay-1">
             
-            <!-- Carte Google Alerts -->
             <div class="tool-card">
                 <div class="tool-icon">🔔</div>
                 <h4>Google Alerts</h4>
                 <p>Alertes configurées sur des mots-clés spécifiques ("IA malware", "Machine Learning SOC") reçues par email pour une veille passive automatisée.</p>
             </div>
 
-            <!-- Carte Sites Web -->
             <div class="tool-card">
                 <div class="tool-icon">🌐</div>
                 <h4>Sites & Blogs Experts</h4>
@@ -124,7 +121,6 @@
                 </div>
             </div>
 
-            <!-- Carte Réseaux Sociaux -->
             <div class="tool-card">
                 <div class="tool-icon">📱</div>
                 <h4>Réseaux Sociaux</h4>
@@ -140,12 +136,10 @@
 
         </div>
 
-        <!-- FIL D'ACTUALITÉ GÉNÉRÉ EN LOCAL -->
         <h2 class="reveal-up" style="font-size: 1.5rem; margin-bottom: 25px; margin-top: 20px; color: var(--text-color);">📰 Les articles que j'ai étudiés</h2>
         
         <div id="articles-container" class="articles-grid">
-            <!-- Les articles s'afficheront ici -->
-        </div>
+            </div>
 
     </section>
 
@@ -159,6 +153,13 @@
            ============================================================== */
         
         const articlesData = [
+            {
+                source: "IT-Connect",
+                title: "Claude, Mythos et la faille FreeBSD : l'IA a-t-elle fait une découverte inédite ?",
+                desc: "Analyse critique sur la capacité réelle des modèles d'IA comme Claude à découvrir de nouvelles vulnérabilités (Zero-Day) de manière autonome dans des systèmes comme FreeBSD, ou si elle se base sur des données existantes.",
+                url: "https://www.it-connect.fr/claude-mythos-et-la-faille-freebsd-ia-a-t-elle-vraiment-fait-une-decouverte-inedite/",
+                imgText: "IA Zero-Day"
+            },
             {
                 source: "IT-Connect",
                 title: "En 9 secondes, cet agent IA a détruit la base de prod de PocketOS",
