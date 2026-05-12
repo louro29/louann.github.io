@@ -57,6 +57,22 @@
         .btn-outline { border-color: rgba(255,255,255,0.2); color: var(--text-color); }
         .btn-outline:hover { border-color: var(--primary-color); background: rgba(0,255,204,0.1); color: var(--primary-color); box-shadow: none; }
 
+        /* DOUBLE TIMELINE (PARCOURS/CV) */
+        #parcours { padding-top: 50px; }
+        .cv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-bottom: 30px; }
+        .cv-column h3 { color: var(--text-color); font-size: 1.5rem; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        
+        .timeline { border-left: 2px solid rgba(0,255,204,0.3); padding-left: 25px; position: relative; }
+        .timeline-item { margin-bottom: 35px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
+        .timeline-date { color: var(--primary-color); font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
+        .timeline-title { font-size: 1.1rem; margin-bottom: 5px; color: var(--text-color); font-weight: 600; }
+        .timeline-company { color: var(--text-muted); font-size: 0.95rem; font-style: italic; margin-bottom: 8px; }
+        
+        ul.task-list { list-style-type: none; margin-top: 8px; }
+        ul.task-list li { position: relative; padding-left: 15px; margin-bottom: 4px; color: var(--text-muted); font-size: 0.9rem; }
+        ul.task-list li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; }
+
         /* SECTION ENTREPRISE */
         #entreprise { padding-top: 50px; padding-bottom: 50px; }
         .entreprise-card { background: var(--surface-color); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; transition: 0.3s; }
@@ -64,10 +80,6 @@
         .entreprise-logo-box { flex: 1; min-width: 250px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(0, 255, 204, 0.3); border-radius: 10px; padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .entreprise-info { flex: 2; min-width: 300px; }
         
-        ul.task-list { list-style-type: none; margin-top: 8px; }
-        ul.task-list li { position: relative; padding-left: 15px; margin-bottom: 4px; color: var(--text-muted); font-size: 0.9rem; }
-        ul.task-list li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; }
-
         /* Galerie Entreprise */
         .factory-gallery { display: flex; gap: 15px; margin-top: 20px; margin-bottom: 25px; flex-wrap: wrap; }
         .factory-img { flex: 1; min-width: 140px; height: 120px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(0, 255, 204, 0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--text-muted); text-align: center; padding: 10px; transition: 0.3s; position: relative; overflow: hidden; }
@@ -85,18 +97,6 @@
         
         .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tech-tags span { background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); padding: 4px 10px; border-radius: 15px; font-size: 0.75rem; }
-
-        /* DOUBLE TIMELINE (PARCOURS/CV) */
-        #parcours { padding-top: 50px; }
-        .cv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-bottom: 30px; }
-        .cv-column h3 { color: var(--text-color); font-size: 1.5rem; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        
-        .timeline { border-left: 2px solid rgba(0,255,204,0.3); padding-left: 25px; position: relative; }
-        .timeline-item { margin-bottom: 35px; position: relative; }
-        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
-        .timeline-date { color: var(--primary-color); font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
-        .timeline-title { font-size: 1.1rem; margin-bottom: 5px; color: var(--text-color); font-weight: 600; }
-        .timeline-company { color: var(--text-muted); font-size: 0.95rem; font-style: italic; margin-bottom: 8px; }
 
         /* GRILLES (PROJETS) */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -133,9 +133,9 @@
         <div class="logo">Louann<span>.lemaire-coudray</span></div>
         <div class="nav-links">
             <a href="#accueil">Accueil</a>
+            <a href="#parcours">Parcours</a>
             <a href="#entreprise">Entreprise</a>
             <a href="#expertise">Expertise</a>
-            <a href="#parcours">Parcours</a>
             <a href="#realisations">Réalisations</a>
             <a href="veille.html">Veille</a>
             <a href="#contact">Contact</a>
@@ -154,6 +154,77 @@
                 <div class="hero-buttons reveal-up delay-3">
                     <a href="documents/CV.pdf" target="_blank" class="btn">📄 Mon CV</a>
                     <a href="document_entreprise/tableau_de_synthese.ods" target="_blank" class="btn btn-outline">📊 Tableau de synthèse</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours">
+        <h2 class="section-title reveal-up">Mon <span>Parcours</span></h2>
+        
+        <div class="cv-grid">
+            <div class="cv-column reveal-up">
+                <h3>💼 Expériences Professionnelles</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Sept 2024 - Août 2026</div>
+                        <div class="timeline-title">Apprenti IT (SISR)</div>
+                        <div class="timeline-company">Griffine Industrie - Nucourt</div>
+                        <div class="timeline-desc">
+                            <ul class="task-list">
+                                <li>Support utilisateur de niveau 1.</li>
+                                <li>Maintenance de l'infrastructure réseau.</li>
+                                <li>Administration systèmes et cybersécurité.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Nov 2023 - Déc 2023</div>
+                        <div class="timeline-title">Stagiaire Informatique</div>
+                        <div class="timeline-company">Griffine Industrie - Nucourt</div>
+                        <div class="timeline-desc">
+                            <ul class="task-list">
+                                <li>Maintenance du parc informatique.</li>
+                                <li>Réparations ordinateurs et préparations téléphones.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Mai 2023 - Juin 2023</div>
+                        <div class="timeline-title">Stagiaire Maintenance IT</div>
+                        <div class="timeline-company">XEFI - Vernon</div>
+                        <div class="timeline-desc">
+                            <ul class="task-list">
+                                <li>Réparations hardware et software.</li>
+                                <li>Dépannage informatique au sein de diverses entreprises.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-column reveal-up delay-1">
+                <h3>🎓 Formations & Diplômes</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024 - 2026</div>
+                        <div class="timeline-title">BTS SIO (Option SISR)</div>
+                        <div class="timeline-company">H3 Campus - Poissy</div>
+                        <div class="timeline-desc">
+                            Solutions d'Infrastructure, Systèmes et Réseaux. Préparation au diplôme d'État.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 - 2024</div>
+                        <div class="timeline-title">Bac Pro Systèmes Numériques</div>
+                        <div class="timeline-company">Lycée Saint-Erembert - St-Germain-en-Laye</div>
+                        <div class="timeline-desc">
+                            Option Réseaux Informatiques et Systèmes Communicants (RISC).
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -242,77 +313,6 @@
                     <span>Atera RMM</span>
                     <span>Ticketing</span>
                     <span>Hardware</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="parcours">
-        <h2 class="section-title reveal-up">Mon <span>Parcours</span></h2>
-        
-        <div class="cv-grid">
-            <div class="cv-column reveal-up">
-                <h3>💼 Expériences Professionnelles</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Sept 2024 - Août 2026</div>
-                        <div class="timeline-title">Apprenti IT (SISR)</div>
-                        <div class="timeline-company">Griffine Industrie - Nucourt</div>
-                        <div class="timeline-desc">
-                            <ul class="task-list">
-                                <li>Support utilisateur de niveau 1.</li>
-                                <li>Maintenance de l'infrastructure réseau.</li>
-                                <li>Administration systèmes et cybersécurité.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">Nov 2023 - Déc 2023</div>
-                        <div class="timeline-title">Stagiaire Informatique</div>
-                        <div class="timeline-company">Griffine Industrie - Nucourt</div>
-                        <div class="timeline-desc">
-                            <ul class="task-list">
-                                <li>Maintenance du parc informatique.</li>
-                                <li>Réparations ordinateurs et préparations téléphones.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">Mai 2023 - Juin 2023</div>
-                        <div class="timeline-title">Stagiaire Maintenance IT</div>
-                        <div class="timeline-company">XEFI - Vernon</div>
-                        <div class="timeline-desc">
-                            <ul class="task-list">
-                                <li>Réparations hardware et software.</li>
-                                <li>Dépannage informatique au sein de diverses entreprises.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cv-column reveal-up delay-1">
-                <h3>🎓 Formations & Diplômes</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024 - 2026</div>
-                        <div class="timeline-title">BTS SIO (Option SISR)</div>
-                        <div class="timeline-company">H3 Campus - Poissy</div>
-                        <div class="timeline-desc">
-                            Solutions d'Infrastructure, Systèmes et Réseaux. Préparation au diplôme d'État.
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2021 - 2024</div>
-                        <div class="timeline-title">Bac Pro Systèmes Numériques</div>
-                        <div class="timeline-company">Lycée Saint-Erembert - St-Germain-en-Laye</div>
-                        <div class="timeline-desc">
-                            Option Réseaux Informatiques et Systèmes Communicants (RISC).
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
