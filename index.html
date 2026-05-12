@@ -54,6 +54,22 @@
         .btn-outline { border-color: rgba(255,255,255,0.2); color: var(--text-color); }
         .btn-outline:hover { border-color: var(--primary-color); background: rgba(0,255,204,0.1); color: var(--primary-color); box-shadow: none; }
 
+        /* DOUBLE TIMELINE (PARCOURS/CV) */
+        #parcours { padding-top: 50px; }
+        .cv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-bottom: 30px; }
+        .cv-column h3 { color: var(--text-color); font-size: 1.5rem; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        
+        .timeline { border-left: 2px solid rgba(0,255,204,0.3); padding-left: 25px; position: relative; }
+        .timeline-item { margin-bottom: 35px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
+        .timeline-date { color: var(--primary-color); font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
+        .timeline-title { font-size: 1.1rem; margin-bottom: 5px; color: var(--text-color); font-weight: 600; }
+        .timeline-company { color: var(--text-muted); font-size: 0.95rem; font-style: italic; margin-bottom: 8px; }
+        
+        ul.task-list { list-style-type: none; margin-top: 8px; }
+        ul.task-list li { position: relative; padding-left: 15px; margin-bottom: 4px; color: var(--text-muted); font-size: 0.9rem; }
+        ul.task-list li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; }
+
         /* SECTION ENTREPRISE */
         #entreprise { padding-top: 50px; padding-bottom: 50px; }
         .entreprise-card { background: var(--surface-color); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; transition: 0.3s; }
@@ -61,10 +77,6 @@
         .entreprise-logo-box { flex: 1; min-width: 250px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(0, 255, 204, 0.3); border-radius: 10px; padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .entreprise-info { flex: 2; min-width: 300px; }
         
-        ul.task-list { list-style-type: none; margin-top: 8px; }
-        ul.task-list li { position: relative; padding-left: 15px; margin-bottom: 4px; color: var(--text-muted); font-size: 0.9rem; }
-        ul.task-list li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; }
-
         /* Galerie Entreprise */
         .factory-gallery { display: flex; gap: 15px; margin-top: 20px; margin-bottom: 25px; flex-wrap: wrap; }
         .factory-img { flex: 1; min-width: 140px; height: 120px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(0, 255, 204, 0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--text-muted); text-align: center; padding: 10px; transition: 0.3s; position: relative; overflow: hidden; }
@@ -82,18 +94,6 @@
         
         .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tech-tags span { background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); color: var(--primary-color); padding: 4px 10px; border-radius: 15px; font-size: 0.75rem; }
-
-        /* DOUBLE TIMELINE (PARCOURS/CV) */
-        #parcours { padding-top: 50px; }
-        .cv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-bottom: 30px; }
-        .cv-column h3 { color: var(--text-color); font-size: 1.5rem; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        
-        .timeline { border-left: 2px solid rgba(0,255,204,0.3); padding-left: 25px; position: relative; }
-        .timeline-item { margin-bottom: 35px; position: relative; }
-        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
-        .timeline-date { color: var(--primary-color); font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
-        .timeline-title { font-size: 1.1rem; margin-bottom: 5px; color: var(--text-color); font-weight: 600; }
-        .timeline-company { color: var(--text-muted); font-size: 0.95rem; font-style: italic; margin-bottom: 8px; }
 
         /* GRILLES (PROJETS) */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -130,7 +130,9 @@
         <div class="logo">Louann<span>.lemaire-coudray</span></div>
         <div class="nav-links">
             <a href="#accueil">Accueil</a>
-            <a href="#entreprise">Entreprise</a> <a href="#expertise">Expertise</a> <a href="#parcours">Parcours</a>
+            <a href="#parcours">Parcours</a>
+            <a href="#entreprise">Entreprise</a>
+            <a href="#expertise">Expertise</a>
             <a href="#realisations">Réalisations</a>
             <a href="veille.html">Veille</a>
             <a href="#contact">Contact</a>
@@ -149,94 +151,6 @@
                 <div class="hero-buttons reveal-up delay-3">
                     <a href="documents/CV.pdf" target="_blank" class="btn">📄 Mon CV</a>
                     <a href="document_entreprise/tableau_de_synthese.ods" target="_blank" class="btn btn-outline">📊 Tableau de synthèse</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="entreprise">
-        <h2 class="section-title reveal-up">Mon <span>Entreprise</span></h2>
-        
-        <div class="entreprise-card reveal-up delay-1">
-            <div class="entreprise-logo-box">
-                <div style="font-size: 4rem; margin-bottom: 15px;">🏭</div>
-                <h3 style="color: var(--primary-color); font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 5px;">Griffine</h3>
-                <p style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase;">Industrie & Production</p>
-            </div>
-            
-            <div class="entreprise-info">
-                <h3 style="color: var(--text-color); font-size: 1.4rem; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Le contexte industriel</h3>
-                
-                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
-                    Griffine est une usine de production spécialisée dans la fabrication de <strong>tissus enduits</strong> (similicuir). Maintenir l'outil industriel opérationnel exige une infrastructure informatique robuste, car la moindre panne réseau ou système peut impacter directement la chaîne de production.
-                </p>
-
-                <ul class="task-list" style="font-size: 1rem; line-height: 1.8;">
-                    <li><strong>📍 Adresse :</strong> 182 Rue de Paris, Nucourt 95420</li>
-                    <li><strong>🏭 Secteur :</strong> Industrie (Tissus enduits)</li>
-                    <li><strong>👥 Effectif :</strong> Environ 200 collaborateurs</li>
-                </ul>
-
-                <div class="factory-gallery">
-                    <div class="factory-img">
-                        <span>📸 Ligne de production / Usine</span>
-                    </div>
-                    <div class="factory-img">
-                        <span>📸 Produits / Tissus enduits</span>
-                    </div>
-                </div>
-                
-                <div style="background: rgba(0, 255, 204, 0.05); border-left: 3px solid var(--primary-color); padding: 15px 20px; border-radius: 0 8px 8px 0;">
-                    <h4 style="color: var(--text-color); font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">💻 Le Service Informatique</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        Je travaille au sein d'une équipe IT restreinte, composée uniquement de mon responsable, <strong>M. Di Zazzo</strong>, et de <strong>moi-même</strong>. Cette configuration m'offre une très grande autonomie : je suis en première ligne face aux 200 employés et j'interviens sur l'ensemble du système d'information de l'usine.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="expertise">
-        <h2 class="section-title reveal-up">Domaines <span>d'Expertise</span></h2>
-        
-        <div class="expertise-grid reveal-up delay-1">
-            <div class="expertise-card">
-                <h4>💻 Administration Systèmes</h4>
-                <p>Gestion des environnements serveurs, administration des comptes utilisateurs, gestion des droits et déploiement de stratégies de groupe (GPO).</p>
-                <div class="tech-tags">
-                    <span>Windows Server</span>
-                    <span>Active Directory</span>
-                    <span>VMware</span>
-                </div>
-            </div>
-
-            <div class="expertise-card">
-                <h4>🌐 Infrastructure Réseau</h4>
-                <p>Configuration et maintien en conditions opérationnelles des équipements réseaux. Déploiement de réseaux locaux et gestion du Wi-Fi.</p>
-                <div class="tech-tags">
-                    <span>Switches HP</span>
-                    <span>Aruba Central</span>
-                    <span>AOS-S</span>
-                </div>
-            </div>
-
-            <div class="expertise-card">
-                <h4>🛡️ Sécurité & Sauvegarde</h4>
-                <p>Supervision des menaces, sécurisation des endpoints et des emails. Mise en place de plans de sauvegarde (PRA) et restauration granulaire.</p>
-                <div class="tech-tags">
-                    <span>Cortex XDR</span>
-                    <span>Hornetsecurity</span>
-                    <span>Veeam</span>
-                </div>
-            </div>
-
-            <div class="expertise-card">
-                <h4>📞 Support & IT Service Management</h4>
-                <p>Prise en charge des incidents utilisateurs (N1/N2), prise en main à distance, gestion de parc informatique et suivi des tickets.</p>
-                <div class="tech-tags">
-                    <span>Atera RMM</span>
-                    <span>Ticketing</span>
-                    <span>Hardware</span>
                 </div>
             </div>
         </div>
@@ -313,6 +227,94 @@
         </div>
     </section>
 
+    <section id="entreprise">
+        <h2 class="section-title reveal-up">Mon <span>Entreprise</span></h2>
+        
+        <div class="entreprise-card reveal-up delay-1">
+            <div class="entreprise-logo-box">
+                <div style="font-size: 4rem; margin-bottom: 15px;">🏭</div>
+                <h3 style="color: var(--primary-color); font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 5px;">Griffine</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase;">Industrie & Production</p>
+                </div>
+            
+            <div class="entreprise-info">
+                <h3 style="color: var(--text-color); font-size: 1.4rem; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Le contexte industriel</h3>
+                
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Griffine est une usine de production spécialisée dans la fabrication de <strong>tissus enduits</strong> (similicuir). Maintenir l'outil industriel opérationnel exige une infrastructure informatique robuste, car la moindre panne réseau ou système peut impacter directement la chaîne de production.
+                </p>
+
+                <ul class="task-list" style="font-size: 1rem; line-height: 1.8;">
+                    <li><strong>📍 Adresse :</strong> 182 Rue de Paris, Nucourt 95420</li>
+                    <li><strong>🏭 Secteur :</strong> Industrie (Tissus enduits)</li>
+                    <li><strong>👥 Effectif :</strong> Environ 200 collaborateurs</li>
+                </ul>
+
+                <div class="factory-gallery">
+                    <div class="factory-img">
+                        <span>📸 Ligne de production / Usine</span>
+                        </div>
+                    <div class="factory-img">
+                        <span>📸 Produits / Tissus enduits</span>
+                        </div>
+                </div>
+                
+                <div style="background: rgba(0, 255, 204, 0.05); border-left: 3px solid var(--primary-color); padding: 15px 20px; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: var(--text-color); font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">💻 Le Service Informatique</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        Je travaille au sein d'une équipe IT restreinte, composée uniquement de mon responsable, <strong>M. Di Zazzo</strong>, et de <strong>moi-même</strong>. Cette configuration m'offre une très grande autonomie : je suis en première ligne face aux 200 employés et j'interviens sur l'ensemble du système d'information de l'usine.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise">
+        <h2 class="section-title reveal-up">Domaines <span>d'Expertise</span></h2>
+        
+        <div class="expertise-grid reveal-up delay-1">
+            <div class="expertise-card">
+                <h4>💻 Administration Systèmes</h4>
+                <p>Gestion des environnements serveurs, administration des comptes utilisateurs, gestion des droits et déploiement de stratégies de groupe (GPO).</p>
+                <div class="tech-tags">
+                    <span>Windows Server</span>
+                    <span>Active Directory</span>
+                    <span>VMware</span>
+                </div>
+            </div>
+
+            <div class="expertise-card">
+                <h4>🌐 Infrastructure Réseau</h4>
+                <p>Configuration et maintien en conditions opérationnelles des équipements réseaux. Déploiement de réseaux locaux et gestion du Wi-Fi.</p>
+                <div class="tech-tags">
+                    <span>Switches HP</span>
+                    <span>Aruba Central</span>
+                    <span>AOS-S</span>
+                </div>
+            </div>
+
+            <div class="expertise-card">
+                <h4>🛡️ Sécurité & Sauvegarde</h4>
+                <p>Supervision des menaces, sécurisation des endpoints et des emails. Mise en place de plans de sauvegarde (PRA) et restauration granulaire.</p>
+                <div class="tech-tags">
+                    <span>Cortex XDR</span>
+                    <span>Hornetsecurity</span>
+                    <span>Veeam</span>
+                </div>
+            </div>
+
+            <div class="expertise-card">
+                <h4>📞 Support & IT Service Management</h4>
+                <p>Prise en charge des incidents utilisateurs (N1/N2), prise en main à distance, gestion de parc informatique et suivi des tickets.</p>
+                <div class="tech-tags">
+                    <span>Atera RMM</span>
+                    <span>Ticketing</span>
+                    <span>Hardware</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="realisations">
         <h2 class="section-title reveal-up">Mes <span>Réalisations</span></h2>
         
@@ -324,170 +326,4 @@
             </div>
         </div>
 
-        <h3 class="reveal-up" style="color: var(--text-color); margin-bottom: 30px; font-size: 1.5rem; text-align: center;">🎓 Projets Épreuve E6</h3>
-        <div class="grid">
-            <div class="card reveal-up delay-1">
-                <h3>📊 Supervision d'Infrastructure</h3>
-                <p>Projet scolaire complet : mise en place d'une solution de monitoring avec Grafana et Prometheus pour superviser une architecture réseau de A à Z.</p>
-                <div class="tech-tags" style="margin-bottom: 20px;">
-                    <span>Grafana</span>
-                    <span>Prometheus</span>
-                    <span>Monitoring Linux</span>
-                </div>
-                <a href="projets.html#monitoring" class="btn btn-outline" style="width: 100%; text-align: center;">Voir le projet</a>
-            </div>
-
-            <div class="card reveal-up delay-2">
-                <h3>🎫 Gestion de Parc & Ticketing</h3>
-                <p>Déploiement et configuration d'un serveur GLPI. Mise en place du Helpdesk, gestion des incidents et inventaire automatisé du parc informatique.</p>
-                <div class="tech-tags" style="margin-bottom: 20px;">
-                    <span>GLPI</span>
-                    <span>Ticketing</span>
-                    <span>ITIL</span>
-                </div>
-                <a href="projets.html#glpi" class="btn btn-outline" style="width: 100%; text-align: center;">Voir le projet</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" style="min-height: 60vh;">
-        <h2 class="section-title reveal-up">Me <span>Contacter</span></h2>
-        
-        <div class="contact-info reveal-up delay-1">
-            <div class="contact-badge">
-                <div class="contact-icon">📍</div>
-                <div class="contact-details">
-                    <h4>Localisation</h4>
-                    <p>Région Parisienne</p>
-                </div>
-            </div>
-            
-            <div class="contact-badge">
-                <div class="contact-icon">✉️</div>
-                <div class="contact-details">
-                    <h4>Email</h4>
-                    <p>louro2903@gmail.com</p>
-                </div>
-            </div>
-        </div>
-
-        <div style="text-align: center;" class="reveal-up delay-2">
-            <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-                N'hésitez pas à me contacter par email ou via LinkedIn pour échanger sur mon parcours, mes compétences techniques ou mes projets d'infrastructure.
-            </p>
-            <a href="mailto:louro2903@gmail.com" class="btn">Envoyer un email</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 - Louann Lemaire-Coudray | Portfolio BTS SIO SISR<span id="secret-dot">.</span></p>
-    </footer>
-
-    <div id="game-overlay">
-        <h2 style="color: var(--primary-color); margin-bottom: 10px;">🚨 Alerte Bug 🚨</h2>
-        <p style="margin-bottom: 20px; color: var(--text-muted);">Attrape le bug 5 fois pour sécuriser le réseau !</p>
-        <div id="game-area"><div id="the-bug">🐛</div></div>
-        <p style="margin-top: 20px; font-size: 1.5rem;">Bugs fixés : <span id="score" style="color: var(--primary-color); font-weight: bold;">0</span> / 5</p>
-        <button id="close-game" class="btn" style="margin-top: 20px;">Fermer la console</button>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            if (typeof tsParticles !== 'undefined') {
-                tsParticles.load("tsparticles", {
-                    particles: {
-                        number: { value: 40, density: { enable: true, value_area: 800 } },
-                        color: { value: "#00ffcc" },
-                        shape: { type: "circle" },
-                        opacity: { value: 0.3, random: true },
-                        size: { value: 3, random: true },
-                        line_linked: { enable: true, distance: 150, color: "#00ffcc", opacity: 0.2, width: 1 },
-                        move: { enable: true, speed: 1, out_mode: "out" }
-                    },
-                    interactivity: {
-                        detect_on: "canvas",
-                        events: { onhover: { enable: true, mode: "grab" }, resize: true },
-                        modes: { grab: { distance: 140, line_linked: { opacity: 0.8 } } }
-                    },
-                    retina_detect: true
-                });
-            }
-
-            if (typeof Typed !== 'undefined') {
-                new Typed('#typed-text', {
-                    strings: [
-                        'Étudiant en BTS SIO SISR.', 
-                        'Technicien Réseaux et Systèmes.',
-                        'Passionné par l\'IA et la Cybersécurité.'
-                    ],
-                    typeSpeed: 50, backSpeed: 30, backDelay: 2000, loop: true
-                });
-            }
-
-            if (typeof ScrollReveal !== 'undefined') {
-                const sr = ScrollReveal({ distance: '50px', duration: 1000, easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' });
-                sr.reveal('.reveal-up', { origin: 'bottom' });
-                sr.reveal('.reveal-left', { origin: 'left' });
-                sr.reveal('.delay-1', { delay: 200 });
-                sr.reveal('.delay-2', { delay: 400 });
-                sr.reveal('.delay-3', { delay: 600 });
-            }
-
-            const trigger = document.getElementById('secret-dot');
-            const overlay = document.getElementById('game-overlay');
-            const bug = document.getElementById('the-bug');
-            const scoreDisplay = document.getElementById('score');
-            const closeBtn = document.getElementById('close-game');
-            const gameArea = document.getElementById('game-area');
-
-            let score = 0;
-            let bugInterval;
-            let currentSpeed = 900;
-
-            function moveBug() {
-                if (!gameArea) return;
-                const maxX = gameArea.clientWidth - 50;
-                const maxY = gameArea.clientHeight - 50;
-                const randomX = Math.floor(Math.random() * maxX);
-                const randomY = Math.floor(Math.random() * maxY);
-                bug.style.left = randomX + 'px';
-                bug.style.top = randomY + 'px';
-            }
-
-            if (trigger && overlay && bug && scoreDisplay && closeBtn) {
-                trigger.addEventListener('click', () => {
-                    overlay.classList.add('active');
-                    score = 0;
-                    currentSpeed = 900;
-                    scoreDisplay.textContent = score;
-                    bug.style.display = 'block';
-                    moveBug();
-                    bugInterval = setInterval(moveBug, currentSpeed);
-                });
-
-                closeBtn.addEventListener('click', () => {
-                    overlay.classList.remove('active');
-                    clearInterval(bugInterval);
-                });
-
-                bug.addEventListener('click', () => {
-                    score++;
-                    scoreDisplay.textContent = score;
-                    if (score >= 5) {
-                        clearInterval(bugInterval);
-                        bug.style.display = 'none';
-                        alert('🎉 GÉANT ! Tu as fixé tous les bugs ! Ton réseau est sécurisé.');
-                        setTimeout(() => { overlay.classList.remove('active'); }, 500);
-                    } else {
-                        clearInterval(bugInterval);
-                        currentSpeed -= 150;
-                        moveBug(); 
-                        bugInterval = setInterval(moveBug, currentSpeed);
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+        <h3 class="reveal-up" style="color: var(--text-color); margin-bottom: 30px; font-size:
