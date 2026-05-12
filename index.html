@@ -68,15 +68,14 @@
         ul.task-list li { position: relative; padding-left: 15px; margin-bottom: 4px; color: var(--text-muted); font-size: 0.9rem; }
         ul.task-list li::before { content: '▹'; color: var(--primary-color); position: absolute; left: 0; }
 
-        /* FORMATION (NOUVELLE SECTION) */
+        /* FORMATION */
         .formation-card { background: var(--surface-color); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; }
         .formation-logo-box { flex: 1; min-width: 250px; text-align: center; }
         .formation-logo-box img { max-width: 200px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 5px rgba(255,255,255,0.1)); }
         .formation-info { flex: 2; min-width: 300px; }
         .block-grid { display: grid; gap: 20px; }
-        .block-item { background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border-left: 3px solid var(--primary-color); }
-        .block-item h4 { color: var(--text-color); font-size: 1rem; margin-bottom: 5px; }
-        .block-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+        .block-item { background: rgba(255,255,255,0.02); padding: 20px 15px; border-radius: 8px; border-left: 3px solid var(--primary-color); display: flex; align-items: center; }
+        .block-item h4 { color: var(--text-color); font-size: 1.1rem; margin: 0; }
 
         /* ENTREPRISE */
         .entreprise-card { background: var(--surface-color); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; }
@@ -199,15 +198,12 @@
                 <div class="block-grid">
                     <div class="block-item">
                         <h4>Block 1 : Mise a disposition SI</h4>
-                        <p>Maîtrise du protocole SSH et gestion de l'Adressage IP.</p>
                     </div>
                     <div class="block-item">
                         <h4>Block 2 : Administration reseaux</h4>
-                        <p>Sauvegarde automatisée via SSH et réalisation de SSH stress test.</p>
                     </div>
                     <div class="block-item">
                         <h4>Block 3 : Cybersecurité</h4>
-                        <p>Protection contre les attaques par dictionnaire et déploiement de Fail2ban.</p>
                     </div>
                 </div>
             </div>
