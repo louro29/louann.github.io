@@ -71,7 +71,7 @@
         /* FORMATION */
         .formation-card { background: var(--surface-color); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; }
         .formation-logo-box { flex: 1; min-width: 250px; text-align: center; }
-        .formation-logo-box img { max-width: 200px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 5px rgba(255,255,255,0.1)); }
+        .formation-logo-box img { max-width: 200px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 5px rgba(255,255,255,0.1)); display: block; margin: 0 auto; }
         .formation-info { flex: 2; min-width: 300px; }
         .block-grid { display: grid; gap: 20px; }
         .block-item { background: rgba(255,255,255,0.02); padding: 20px 15px; border-radius: 8px; border-left: 3px solid var(--primary-color); display: flex; align-items: center; }
@@ -80,10 +80,12 @@
         /* ENTREPRISE */
         .entreprise-card { background: var(--surface-color); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; }
         .entreprise-logo-box { flex: 1; min-width: 250px; text-align: center; }
-        .entreprise-logo-box img { max-width: 160px; height: auto; margin-bottom: 20px; border-radius: 8px; }
-        .factory-gallery { display: flex; gap: 15px; margin-top: 20px; margin-bottom: 25px; flex-wrap: wrap; }
-        .factory-img { flex: 1; min-width: 140px; height: 120px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(0, 255, 204, 0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--text-muted); text-align: center; overflow: hidden; position: relative; }
-        .factory-img img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+        .entreprise-logo-box img { max-width: 160px; height: auto; margin-bottom: 20px; border-radius: 8px; display: block; margin: 0 auto; }
+        .factory-gallery { display: flex; gap: 20px; margin-top: 20px; margin-bottom: 25px; flex-wrap: wrap; }
+        
+        /* CORRECTION DES IMAGES DE LA GALERIE */
+        .factory-img { flex: 1; min-width: 200px; height: 160px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); background-color: #222; }
+        .factory-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         /* EXPERTISE */
         .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
@@ -228,8 +230,8 @@
                     <li><strong>👥 Effectif :</strong> 200 collaborateurs</li>
                 </ul>
                 <div class="factory-gallery">
-                    <div class="factory-img"><img src="document_entreprise/usine.jpg" alt="Usine"></div>
-                    <div class="factory-img"><img src="document_entreprise/tissus.jpg" alt="Tissus"></div>
+                    <div class="factory-img"><img src="document_entreprise/usine.jpg" alt="Photo Usine"></div>
+                    <div class="factory-img"><img src="document_entreprise/tissus.jpg" alt="Photo Tissus"></div>
                 </div>
                 <div style="background: rgba(0, 255, 204, 0.05); border-left: 3px solid var(--primary-color); padding: 15px 20px; border-radius: 0 8px 8px 0;">
                     <h4 style="color: var(--text-color); font-size: 1rem;">💻 Service Informatique</h4>
