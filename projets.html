@@ -43,13 +43,17 @@
         .page-header { text-align: center; margin-bottom: 60px; }
         .page-header h1 { font-size: 3rem; margin-bottom: 15px; }
         .page-header h1 span { color: var(--primary-color); }
-        .page-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .page-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
 
         /* HEADER DE PROJET */
-        .project-header { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .project-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .project-header-left { display: flex; align-items: center; gap: 20px; }
         .project-icon { font-size: 3.5rem; background: rgba(0, 255, 204, 0.1); width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 15px; border: 1px solid var(--primary-color); }
         .project-header-text h2 { font-size: 2rem; color: var(--text-color); margin-bottom: 5px; }
         .project-header-text p { font-size: 1.1rem; color: var(--primary-color); font-weight: 600; }
+        
+        .btn { display: inline-block; padding: 12px 30px; background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; cursor: pointer; text-align: center; }
+        .btn:hover { background: var(--primary-color); color: var(--bg-color); box-shadow: 0 0 20px rgba(0, 255, 204, 0.6); transform: translateY(-3px); }
 
         /* GRILLE DES ÉTAPES DU PROJET */
         .project-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 80px; }
@@ -90,99 +94,176 @@
     <section>
         <div class="page-header reveal-up">
             <h1>Mes Projets <span>Épreuve E6</span></h1>
-            <p>Détails techniques, configurations et rapports de déploiement de mes infrastructures réalisées dans le cadre de ma formation BTS SIO.</p>
+            <p>Détails techniques, configurations et rapports de déploiement de mes infrastructures réalisées dans le cadre de ma formation BTS SIO à la Maison des Ligues de Lorraine (M2L).</p>
         </div>
 
+        <!-- ==========================================
+             PROJET 1 : PROMETHEUS & GRAFANA 
+             ========================================== -->
         <div id="monitoring" style="scroll-margin-top: 100px;">
             <div class="project-header reveal-up">
-                <div class="project-icon">📊</div>
-                <div class="project-header-text">
-                    <h2>Supervision d'Infrastructure</h2>
-                    <p>Rapport de Projet : Monitoring avec Prometheus & Grafana</p>
+                <div class="project-header-left">
+                    <div class="project-icon">📊</div>
+                    <div class="project-header-text">
+                        <h2>Supervision d'Infrastructure</h2>
+                        <p>Prometheus & Grafana</p>
+                    </div>
                 </div>
+                <!-- BOUTON DE TÉLÉCHARGEMENT -->
+                <a href="documents/Documentation_Supervision.pdf" target="_blank" class="btn">📥 Télécharger la documentation technique</a>
+            </div>
+
+            <div class="project-steps">
+                <!-- Étape 1 -->
+                <div class="step-card reveal-up delay-1">
+                    <div class="step-number">01</div>
+                    <h3><span>🎯</span> Contexte & Objectifs</h3>
+                    <p>L'objectif de ce projet est de concevoir, déployer et sécuriser une solution de supervision centralisée (Prometheus) couplée à un outil de visualisation (Grafana)[cite: 2].</p>
+                    <ul>
+                        <li><strong>Cibles :</strong> Routeur Ubuntu, Hyperviseur PVE2, Switch Cisco 2960, Borne Wi-Fi Cisco Aironet 1702[cite: 2].</li>
+                        <li><strong>Métriques :</strong> Charge CPU, RAM, latences réseau, métriques DNS[cite: 2].</li>
+                    </ul>
+                </div>
+
+                <!-- Étape 2 -->
+                <div class="step-card reveal-up delay-2">
+                    <div class="step-number">02</div>
+                    <h3><span>⚙️</span> Prometheus (Installation)</h3>
+                    <p>L'installation est réalisée manuellement via l'archive officielle Linux amd64 pour bénéficier de la version de production la plus récente[cite: 2].</p>
+                    <ul>
+                        <li><strong>Extraction :</strong> Création des répertoires systèmes <code>/etc/prometheus</code> et copie des binaires[cite: 2].</li>
+                        <li><strong>Démon Systemd :</strong> Création du fichier <code>prometheus.service</code> pour assurer la continuité de service au démarrage[cite: 2].</li>
+                    </ul>
+                </div>
+
+                <!-- Étape 3 -->
+                <div class="step-card reveal-up delay-3">
+                    <div class="step-number">03</div>
+                    <h3><span>📈</span> Grafana & Sécurisation SSL</h3>
+                    <p>Installation de Grafana via les dépôts APT officiels avec clé GPG[cite: 2].</p>
+                    <ul>
+                        <li><strong>HTTPS :</strong> Génération d'un bi-clé et d'un certificat auto-signé dédié à Grafana[cite: 2].</li>
+                        <li><strong>Résolution d'incident :</strong> Correction de l'erreur <code>SSL_ERROR_RX_RECORD_TOO_LONG</code> en attribuant les privilèges de lecture restrictifs (640) au groupe <code>grafana</code> sur les certificats[cite: 2].</li>
+                    </ul>
+                </div>
+
+                <!-- Étape 4 -->
+                <div class="step-card reveal-up delay-1">
+                    <div class="step-number">04</div>
+                    <h3><span>📡</span> Configuration YAML & Agents</h3>
+                    <p>Le fichier <code>prometheus.yml</code> centralise les jobs de requêtage[cite: 2].</p>
+                    <ul>
+                        <li><strong>Node Exporter :</strong> Déployé sur le Routeur Linux (port 9100) pour l'état système brut[cite: 2].</li>
+                        <li><strong>Proxmox Exporter :</strong> Utilitaire en Python interrogeant l'API interne de PVE2 (port 9221)[cite: 2].</li>
+                    </ul>
+                </div>
+
+                <!-- Étape 5 -->
+                <div class="step-card reveal-up delay-2">
+                    <div class="step-number">05</div>
+                    <h3><span>🖧</span> Supervision SNMP (Cisco)</h3>
+                    <p>Acquisition des métriques réseau via le protocole standardisé SNMPv2c[cite: 2].</p>
+                    <ul>
+                        <li><strong>Configuration :</strong> Création d'une communauté SNMP en lecture seule <code>team3</code> sur le Switch 2960 et la Borne AP[cite: 2].</li>
+                        <li><strong>SNMP Exporter :</strong> Ajout des jobs dans Prometheus avec un traducteur local (port 9116)[cite: 2].</li>
+                    </ul>
+                </div>
+                
+                <!-- Étape 6 -->
+                <div class="step-card reveal-up delay-3">
+                    <div class="step-number">06</div>
+                    <h3><span>✅</span> Recette & Validation</h3>
+                    <p>La phase de recette valide l'étanchéité de la collecte[cite: 2].</p>
+                    <ul>
+                        <li><strong>Prometheus :</strong> Vérification du statut nominal vert (UP) pour toutes les cibles sur <code>/targets</code>[cite: 2].</li>
+                        <li><strong>Grafana :</strong> Importation de tableaux de bord et vérification de la connexion HTTPS avec cadenas de sécurité[cite: 2].</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 PROJET 2 : GLPI 
+                 ========================================== -->
+        <div id="glpi" style="scroll-margin-top: 100px; padding-top: 50px; border-top: 1px dashed rgba(255, 255, 255, 0.1);">
+            <div class="project-header reveal-up">
+                <div class="project-header-left">
+                    <div class="project-icon">🎫</div>
+                    <div class="project-header-text">
+                        <h2>Gestion de Parc & Ticketing</h2>
+                        <p>Déploiement GLPI & Active Directory</p>
+                    </div>
+                </div>
+                <!-- BOUTON DE TÉLÉCHARGEMENT -->
+                <a href="documents/Dossier_Technique_GLPI.pdf" target="_blank" class="btn">📥 Télécharger le dossier complet</a>
             </div>
 
             <div class="project-steps">
                 
+                <!-- Étape 1 -->
                 <div class="step-card reveal-up delay-1">
                     <div class="step-number">01</div>
-                    <h3><span>🎯</span> Objectif du projet</h3>
-                    <p>L’objectif principal est la mise en place d’une solution de <strong>monitoring centralisée</strong> pour surveiller en temps réel l’état de mes équipements (CPU, mémoire vive, stockage et flux réseau).</p>
-                    <div class="highlight-box">
-                        <p>Ce projet permet d’obtenir une vision précise des performances du routeur, des switches et des points d'accès (AP).</p>
-                    </div>
+                    <h3><span>🎯</span> Contexte & Objectifs</h3>
+                    <p>L'objectif de ce projet est de concevoir et de déployer une solution centralisée de gestion de parc informatique et de Service Desk au sein de la M2L[cite: 1].</p>
+                    <ul>
+                        <li><strong>Authentification :</strong> Interconnexion avec l'Active Directory via LDAP[cite: 1].</li>
+                        <li><strong>Automatisation :</strong> Inventaire du parc via le déploiement de GLPI Agent[cite: 1].</li>
+                    </ul>
                 </div>
 
+                <!-- Étape 2 -->
                 <div class="step-card reveal-up delay-2">
                     <div class="step-number">02</div>
-                    <h3><span>⚙️</span> Prometheus (Installation)</h3>
+                    <h3><span>🖥️</span> Active Directory (SRV-AD01)</h3>
+                    <p>Mise en place de l'annuaire sur Windows Server 2019 (172.16.3.15)[cite: 1].</p>
                     <ul>
-                        <li><strong>Méthode d’installation :</strong> Déploiement via les dépôts officiels Ubuntu, avantageux car incluant nativement les composants essentiels comme <code>alertmanager</code> et <code>node_exporter</code>.</li>
-                        <li><strong>Gestion du service :</strong> Création automatique d'un service <code>systemd (systemctl)</code>. Cela garantit le lancement automatique au démarrage du serveur, assurant une collecte ininterrompue.</li>
+                        <li><strong>Installation :</strong> Ajout du rôle AD DS et des outils d'administration distants (RSAT)[cite: 1].</li>
+                        <li><strong>Promotion :</strong> Création de la nouvelle forêt racine <code>WINTER.LOCAL</code> et intégration du rôle Serveur DNS[cite: 1].</li>
                     </ul>
                 </div>
 
+                <!-- Étape 3 -->
                 <div class="step-card reveal-up delay-3">
                     <div class="step-number">03</div>
-                    <h3><span>📡</span> Node Exporter (Collecte)</h3>
-                    <p>L'agent Node Exporter est déployé sur les machines cibles (sauf AP et Switch) pour analyser les métriques.</p>
+                    <h3><span>🔗</span> Jonction au Domaine</h3>
+                    <p>Intégration des postes clients au domaine <code>WINTER.LOCAL</code>[cite: 1].</p>
                     <ul>
-                        <li><strong>Sur la VM :</strong> Collecte des données système de ma VM Proxmox.</li>
-                        <li><strong>Sur le Routeur :</strong> Récupération des informations spécifiques du routeur.</li>
-                        <li><strong>Configuration serveur :</strong> Ajout du <code>job_name: router_node</code> dans <code>prometheus.yml</code> avec l'IP et le port de la cible.</li>
+                        <li><strong>Client Windows 11 :</strong> Modification du DNS et bascule du groupe de travail vers le domaine[cite: 1].</li>
+                        <li><strong>Client Ubuntu Desktop :</strong> Installation de <code>realmd</code> et <code>sssd</code>, exécution de <code>realm join</code>, et configuration PAM pour la création dynamique des répertoires /home/[cite: 1].</li>
                     </ul>
                 </div>
 
+                <!-- Étape 4 -->
                 <div class="step-card reveal-up delay-1">
                     <div class="step-number">04</div>
-                    <h3><span>📈</span> Grafana (Installation)</h3>
-                    <p>L’installation a été réalisée via le dépôt officiel pour garantir la sécurité et faciliter les mises à jour :</p>
+                    <h3><span>🪪</span> Interconnexion LDAP & GLPI</h3>
+                    <p>Liaison de l'application GLPI (172.16.3.39) à l'annuaire de manière sécurisée[cite: 1].</p>
                     <ul>
-                        <li><strong>Authentification :</strong> Ajout d'une clé GPG pour valider les paquets.</li>
-                        <li><strong>Dépôt & Installation :</strong> Ajout aux sources du système et installation de la version Enterprise via <code>apt</code>.</li>
-                        <li><strong>Service :</strong> Configuration en tant que service système pour un démarrage automatisé.</li>
+                        <li><strong>Remontée :</strong> Utilisation de l'attribut <code>memberOf</code> pour lire les groupes de sécurité Windows[cite: 1].</li>
+                        <li><strong>Automatisation :</strong> Règle d'affectation dynamique associant le groupe AD (ex: <code>GG-GLPI-Techniciens</code>) au profil GLPI <code>Technician</code>[cite: 1].</li>
                     </ul>
                 </div>
 
+                <!-- Étape 5 -->
                 <div class="step-card reveal-up delay-2">
                     <div class="step-number">05</div>
-                    <h3><span>🖥️</span> Visualisation & Dashboard</h3>
-                    <p>Configuration de l'interface web pour l'exploitation visuelle des données :</p>
+                    <h3><span>📦</span> Déploiement GLPI Agent</h3>
+                    <p>Automatisation de l'inventaire matériel et logiciel[cite: 1].</p>
                     <ul>
-                        <li><strong>Liaison des données :</strong> Ajout de Prometheus comme <em>Data Source</em> via l’adresse IP du serveur.</li>
-                        <li><strong>Résultat final :</strong> Création d'un Dashboard dynamique. Il permet de visualiser les statistiques et performances de la VM et du routeur sous forme de graphiques clairs et complets.</li>
+                        <li><strong>Environnement Windows :</strong> Installation via package <code>.msi</code> en tant que service d'arrière-plan (Windows Service) pointant vers l'URL du serveur[cite: 1].</li>
+                        <li><strong>Environnement Linux :</strong> Ajout de la clé GPG, installation via APT, édition de <code>agent.cfg</code> et activation via Systemd[cite: 1].</li>
                     </ul>
                 </div>
 
+                <!-- Étape 6 -->
                 <div class="step-card reveal-up delay-3">
                     <div class="step-number">06</div>
-                    <h3><span>🖧</span> Supervision SNMP (Switch & AP)</h3>
-                    <p>Intégration des équipements réseaux (Switch Cisco/HP et AP Wifi) via le protocole SNMP :</p>
+                    <h3><span>🔐</span> Sécurisation HTTPS (Apache2)</h3>
+                    <p>Désactivation du protocole HTTP clair (port 80) au profit du HTTPS (port 443)[cite: 1].</p>
                     <ul>
-                        <li><strong>Configuration cibles :</strong> Activation SNMP avec une communauté dédiée nommée <code>team3</code>.</li>
-                        <li><strong>SNMP Exporter :</strong> Utilisation d’un générateur pour créer le <code>snmp.yml</code> (gestion des MIBs) et injection de la communauté.</li>
-                        <li><strong>Prometheus :</strong> Ajout des jobs <code>snmp-switch</code> et <code>snmp-ap</code>.</li>
+                        <li><strong>Certificats :</strong> Génération d'un certificat SSL auto-signé valide 3 ans[cite: 1].</li>
+                        <li><strong>VirtualHost :</strong> Configuration de <code>default-ssl.conf</code>, activation des modules Apache (<code>a2enmod ssl</code>) et redirection permanente (HTTP vers HTTPS)[cite: 1].</li>
+                        <li><strong>Impact :</strong> Ajustement des cibles des agents GLPI (Remote Targets) vers la nouvelle URL sécurisée[cite: 1].</li>
                     </ul>
-                    <div class="highlight-box">
-                        <p><strong>Métriques clés :</strong> Uptime, statut des ports (Up/Down), trafic E/S, erreurs sur interfaces.</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id="glpi" style="scroll-margin-top: 100px; padding-top: 50px; border-top: 1px dashed rgba(255, 255, 255, 0.1);">
-            <div class="project-header reveal-up">
-                <div class="project-icon">🎫</div>
-                <div class="project-header-text">
-                    <h2>Gestion de Parc & Ticketing</h2>
-                    <p>Rapport de Projet : Déploiement GLPI et intégration Active Directory</p>
-                </div>
-            </div>
-
-            <div class="project-steps">
-                <div class="step-card reveal-up delay-1" style="grid-column: 1 / -1; text-align: center; padding: 50px;">
-                    <h3 style="justify-content: center; font-size: 1.5rem; margin-bottom: 20px;">🚧 Rapport en cours de rédaction</h3>
-                    <p>Le détail complet du déploiement de GLPI (Helpdesk, inventaire automatisé, interconnexion LDAP avec Windows Server 2019) sera intégré ici prochainement.</p>
                 </div>
             </div>
         </div>
